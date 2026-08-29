@@ -350,6 +350,18 @@ li + li { margin-top: 6px; }
   border: 1px solid var(--line);
 }
 
+.grid-2 > .scene {
+  margin: 0;
+  max-width: none;
+}
+
+.grid-2 > .scene.is-ui img {
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  object-position: top center;
+  background: #f3f4f6;
+}
+
 .scene.is-strip { max-width: none; }
 
 .scene.is-strip img {
