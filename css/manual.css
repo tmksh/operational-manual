@@ -147,8 +147,8 @@ a:hover { color: var(--navy-bright); }
 }
 
 .page {
-  max-width: 920px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
   padding: 48px 40px 96px;
 }
 
@@ -212,7 +212,7 @@ li + li { margin-top: 6px; }
 .hero::before,
 .hero::after { z-index: 0; }
 
-.hero-inner { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
+.hero-inner { position: relative; z-index: 1; max-width: none; margin: 0; }
 .hero h1 { color: var(--white); margin-bottom: 12px; }
 .hero .lead { color: rgba(255, 255, 255, 0.82); }
 .hero a { color: #bcdcf0; }
@@ -222,23 +222,23 @@ li + li { margin-top: 6px; }
 .flow {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 10px;
-  margin: 28px 0 8px;
+  gap: 8px;
+  margin: 20px 0 0;
 }
 
 .flow a {
   display: block;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 12px;
-  padding: 14px 12px;
+  border-radius: 8px;
+  padding: 6px 10px 7px;
   color: var(--white);
   text-decoration: none;
 }
 
 .flow a:hover { background: rgba(255, 255, 255, 0.14); color: var(--white); }
-.flow .num { display: block; font-size: 11px; letter-spacing: 0.12em; color: rgba(255, 255, 255, 0.5); }
-.flow .name { display: block; margin-top: 6px; font-weight: 700; font-size: 13px; line-height: 1.35; }
+.flow .num { display: block; font-size: 10px; letter-spacing: 0.12em; color: rgba(255, 255, 255, 0.5); line-height: 1.2; }
+.flow .name { display: block; margin-top: 1px; font-weight: 700; font-size: 12px; line-height: 1.2; }
 
 .stepbar {
   display: flex;
