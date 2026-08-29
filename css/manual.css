@@ -415,6 +415,16 @@ li + li { margin-top: 6px; }
   background: #f3f4f6;
 }
 
+.grid-2.is-flush {
+  align-items: start;
+}
+
+.grid-2.is-flush > .scene.is-ui img {
+  aspect-ratio: auto;
+  object-fit: contain;
+  background: var(--white);
+}
+
 .scene.is-strip { max-width: none; }
 
 .scene.is-strip img {
