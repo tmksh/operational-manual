@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>03 見積・契約 | SHINJIDAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/manual.css">
+</head>
+<body>
+  <button class="menu-toggle" id="menu-toggle" aria-expanded="false">メニュー</button>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page">
+        <nav id="steps"></nav>
+
+        <div class="phase-head">
+          <div>
+            <div class="kicker">PHASE 03</div>
+            <h1>見積・契約</h1>
+            <p class="lead">スコープ・成果物・検収・知的財産・保守の扱いを、契約書・見積書・仕様書で明確化します。</p>
+          </div>
+          <figure class="scene">
+            <img src="../img/photo-03-contract.jpg" alt="机をはさんで書類を差し出し、お客様がペンを持っている写真">
+            <figcaption>数字だけ送らない。範囲を一緒に読みながら渡す</figcaption>
+          </figure>
+        </div>
+
+        <div class="meta">
+          <div class="meta-item"><span>担当</span><strong>案件オーナー</strong></div>
+          <div class="meta-item"><span>手元に置く</span><strong>要件定義書</strong></div>
+          <div class="meta-item"><span>終わり</span><strong>発注または契約</strong></div>
+        </div>
+
+        <h2>見積書をつくる</h2>
+        <p><a href="https://tmksh.github.io/syorui/" target="_blank" rel="noopener">請求書・見積書メーカー</a> で作ります。雛形を直接編集してPDFで出せます。社印と登録番号は入っているので、宛先・件名・内訳・有効期限を入れ替えるだけです。入力内容はブラウザ内にだけ保存されます。</p>
+        <ul>
+          <li>件名は「システム開発費用（フェーズ1）」のように、段階が分かる書き方にする</li>
+          <li>内訳は「一式」で終わらせず、下の表の項目に分けて並べる</li>
+          <li>備考に、前提・除外・やり直す条件を書く（次の見出し）</li>
+        </ul>
+        <figure class="scene is-ui">
+          <img src="../img/tool-quote-editor.png" alt="請求書・見積書メーカーの編集画面。左に計算・表示の設定、右に見積書の原本が表示されている">
+          <figcaption>右の原本をクリックして直接書き換える。左で消費税の扱いと端数処理を選ぶ</figcaption>
+        </figure>
+        <figure class="scene is-ui">
+          <img src="../img/tool-quote-pdf.png" alt="ブラウザの印刷ダイアログで、完成した見積書をPDFに保存しようとしている画面">
+          <figcaption>「PDFダウンロード」か「印刷 / PDF保存」でPDFにする。送る前に金額と有効期限を目で確かめる</figcaption>
+        </figure>
+
+        <h2>摘要に並べる行</h2>
+        <p>第1段階の範囲だけを積みます。第2段階は参考金額か、別見積にします。1行「一式」で出さず、この単位に分けます。</p>
+        <table>
+          <thead>
+            <tr>
+              <th>摘要</th>
+              <th>単位</th>
+              <th>何を入れるか</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>要件定義・設計</td>
+              <td>式</td>
+              <td>要件定義書と機能一覧を作る分。02をやってから見積る場合は、ここを0にして別途にする</td>
+            </tr>
+            <tr>
+              <td>画面開発</td>
+              <td>式</td>
+              <td>要件定義書の「やること」を1行ずつ。画面・帳票ごとに分ける</td>
+            </tr>
+            <tr>
+              <td>データ移行</td>
+              <td>式</td>
+              <td>移す作業、中身の突き合わせ、やり直しの分。件数を書く（例：既存顧客3,000件）</td>
+            </tr>
+            <tr>
+              <td>検証・検収対応</td>
+              <td>式</td>
+              <td>検証環境の準備、検収での指摘対応</td>
+            </tr>
+            <tr>
+              <td>打ち合わせ・報告</td>
+              <td>式</td>
+              <td>キックオフ、途中の報告、資料づくり</td>
+            </tr>
+            <tr>
+              <td>本番切替・操作説明</td>
+              <td>式</td>
+              <td>権限の設定、切替作業、操作説明、初日の立ち会い</td>
+            </tr>
+            <tr>
+              <td>予備</td>
+              <td>式</td>
+              <td>未確認が残っている分。0にしない<small>未確認が多い案件ほど厚くする</small></td>
+            </tr>
+            <tr>
+              <td>保守</td>
+              <td>月</td>
+              <td>開発の行に混ぜない。月額として別の行にするか、別見積にする</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note">修繕・改修の案件も同じです。「システム修繕費用 一式」だけで出すと、あとで「どこまで直すのか」でもめます。直す対象を摘要に書きます（例：システム修繕（帳票出力の不具合1件・表示の調整3件））。</p>
+
+        <h2>見積書のその他の欄</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>欄</th>
+              <th>書き方</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>件名</td>
+              <td>「○○システム開発費用（フェーズ1）」のように、段階が分かる書き方にする</td>
+            </tr>
+            <tr>
+              <td>数量・単位</td>
+              <td>基本は「1 式」。人日で出す場合は単価も人日に合わせる</td>
+            </tr>
+            <tr>
+              <td>消費税</td>
+              <td>外税（単価は税抜）で作る。端数は切り捨て</td>
+            </tr>
+            <tr>
+              <td>有効期限</td>
+              <td>発行から1か月を目安に入れる。空欄にしない</td>
+            </tr>
+            <tr>
+              <td>備考</td>
+              <td>前提・除外・やり直す条件を書く（次の見出し）。支払い条件と請求のタイミングもここ</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>見積書に必ず書くこと</h2>
+        <div class="grid-3">
+          <div class="card">
+            <h3>前提</h3>
+            <p>どの版の要件定義書を前提にしているか。お客様側の作業と、その期限。</p>
+          </div>
+          <div class="card">
+            <h3>除外</h3>
+            <p>今回やらないこと。第2段階に送るものは「改めて見積」と書く。</p>
+          </div>
+          <div class="card">
+            <h3>やり直す条件</h3>
+            <p>範囲が増えたとき、つなぎ先が変わったとき、移すデータの中身が想定と違ったとき。</p>
+          </div>
+        </div>
+        <p class="note">この3つが空欄の見積書は出しません。あとで「言った / 言わない」になる場所は、ほぼここです。</p>
+
+        <h2>契約で決めること</h2>
+        <p>案件ごとに決め、契約書・見積書・仕様書のどれかに必ず書きます。</p>
+        <table>
+          <thead>
+            <tr>
+              <th>項目</th>
+              <th>決める中身</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ソースコードの納品</td>
+              <td>渡す範囲、ドキュメント、ビルド手順の有無</td>
+            </tr>
+            <tr>
+              <td>著作権・知的財産</td>
+              <td>新規開発部分、既存資産、第三者コンポーネントの権利</td>
+            </tr>
+            <tr>
+              <td>外部ライブラリ</td>
+              <td>採用技術とライセンス上の留意点。重要な依存は納品物に含める</td>
+            </tr>
+            <tr>
+              <td>アカウントの名義</td>
+              <td>サーバー・ドメイン・SaaS・アプリストアを、お客様名義か当社名義か</td>
+            </tr>
+            <tr>
+              <td>契約終了時のデータ</td>
+              <td>渡す形式、手順、保管期間</td>
+            </tr>
+            <tr>
+              <td>他社への引き継ぎ</td>
+              <td>コード、設計、環境情報、運用手順のどこまでを渡すか</td>
+            </tr>
+            <tr>
+              <td>検収と保守</td>
+              <td>合格の条件（02の完了定義）と、納品後に直す範囲</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>次に進む合図</h2>
+        <ul class="checklist">
+          <li>見積の範囲と、要件定義書が一致している</li>
+          <li>前提・除外・やり直す条件が書いてある</li>
+          <li>発注書、契約書、発注のメールなど、事実が残っている</li>
+          <li>キックオフMTGで決めた目的・画面数・権限数と、見積の範囲が合っている</li>
+        </ul>
+        <p class="note">口頭の「進めて」だけでは作り始めません。急ぐときは、第1段階だけ先に契約します。</p>
+
+        <nav class="pager">
+          <a href="02-requirements.html"><span>前</span>02 要件定義・設計</a>
+          <a href="04-development.html"><span>次</span>04 開発・検証</a>
+        </nav>
+      </div>
+    </main>
+  </div>
+  <script src="../js/app.js"></script>
+</body>
+</html>

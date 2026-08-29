@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cursorの使い方 | SHINJIDAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/manual.css">
+</head>
+<body>
+  <button class="menu-toggle" id="menu-toggle" aria-expanded="false">メニュー</button>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page">
+        <div class="tool-head">
+          <span class="tool-logo"><img src="../img/logos/cursor.svg" alt="Cursorのロゴ"></span>
+          <h1>Cursor</h1>
+        </div>
+        <p class="lead">自分のPCの中でコードを書く場所です。サイトの編集・開発はすべてここから始まります。</p>
+
+        <div class="meta">
+          <div class="meta-item"><span>置き場所</span><strong>自分のPC（ローカル）</strong></div>
+          <div class="meta-item"><span>役割</span><strong>コードを書く・編集する</strong></div>
+          <div class="meta-item"><span>次に渡す先</span><strong>GitHub Desktop</strong></div>
+          <div class="meta-item"><span>公式サイト</span><strong><a href="https://cursor.com/" target="_blank" rel="noopener">cursor.com</a></strong></div>
+        </div>
+
+        <h2>ひとことで言うと</h2>
+        <p>Cursorは、AIが組み込まれたコードエディタです。お客様に説明するときは「サイトの中身を書き換える作業用アプリ」と言えば十分です。ここで直しても、まだ自分のPCの中だけの変更で、公開サイトには一切影響しません。</p>
+        <p class="note">「Cursorで直した ＝ サイトが変わった」ではありません。ここを混同すると、直したはずなのに反映されないという相談が増えます。公開までには <a href="github-desktop.html">GitHub Desktop</a> → <a href="github.html">GitHub</a> → <a href="netlify.html">Netlify</a> を通ります。</p>
+
+        <h2>画面の見方</h2>
+        <p>Macでは、よく使う場所の出し入れは次のキーです。消えて慌てたら、もう一度同じキーを押すと戻ります。</p>
+        <table>
+          <thead>
+            <tr>
+              <th>場所</th>
+              <th>何をするか</th>
+              <th>Macのキー</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>左のフォルダ一覧</td>
+              <td>案件のファイルを探す</td>
+              <td><code>⌘ + B</code></td>
+            </tr>
+            <tr>
+              <td>下のターミナル</td>
+              <td>コマンドを打つ・ログを見る</td>
+              <td><code>⌘ + J</code>（パネル） / <code>Ctrl + `</code>（ターミナル）</td>
+            </tr>
+            <tr>
+              <td>右のチャット</td>
+              <td>日本語で直してもらう</td>
+              <td><code>⌘ + L</code></td>
+            </tr>
+            <tr>
+              <td>保存</td>
+              <td>今開いているファイルを書き出す</td>
+              <td><code>⌘ + S</code></td>
+            </tr>
+            <tr>
+              <td>ファイルを名前で開く</td>
+              <td>フォルダを辿らずに探す</td>
+              <td><code>⌘ + P</code></td>
+            </tr>
+          </tbody>
+        </table>
+        <figure class="scene is-ui">
+          <img src="../img/step-cursor-layout.png" alt="Cursorの全体。左にフォルダ一覧、中央に画面、右にAIチャット、下にターミナルがある">
+          <figcaption>左がファイル、中央が作業、右がチャット、下がターミナルです</figcaption>
+        </figure>
+        <figure class="scene is-ui">
+          <img src="../img/step-cursor-sidebar.png" alt="左のフォルダ一覧。案件のフォルダとファイルが並んでいる">
+          <figcaption>左のフォルダ一覧。<code>⌘ + B</code> で出したり隠したりします</figcaption>
+        </figure>
+        <figure class="scene is-ui">
+          <img src="../img/step-cursor-terminal.png" alt="下のターミナル。Terminalタブが選ばれ、コマンド入力待ちになっている">
+          <figcaption>下のターミナル。消えたときは <code>⌘ + J</code> でパネルを出します</figcaption>
+        </figure>
+
+        <h3>サイトを自分のPCで見る</h3>
+        <p>案件のフォルダを開いたら、下のターミナルで起動コマンドを打ちます。よく使うのは次です。</p>
+        <p><code>npm run dev</code></p>
+        <p>Enterを押すと、自分のPCの中だけでサイトが動き出します。出てきた <code>localhost</code> のURLをブラウザで開いて、直した内容を確認します。この時点では、まだ公開サイトは変わりません。</p>
+        <figure class="scene is-ui">
+          <img src="../img/step-cursor-npm-dev.png" alt="ターミナルに npm run dev と打ち込んだ画面">
+          <figcaption>起動コマンドは <code>npm run dev</code>。ターミナルに打って Enter です</figcaption>
+        </figure>
+
+        <h3>ターミナルにエラーが出たとき</h3>
+        <p>コマンドを打ったあと赤い文字や英語の長い行が出たら、自分で訳さなくて大丈夫です。</p>
+        <ol>
+          <li>エラーの行をドラッグして選択する。</li>
+          <li>右上に <strong>Add to Chat</strong>（<code>⌘ + L</code>）が出る。</li>
+          <li>それを押すと、選んだ内容が右のチャットに入る。</li>
+          <li>「このエラーを直してください」と送る。</li>
+        </ol>
+        <figure class="scene is-ui">
+          <img src="../img/step-cursor-add-to-chat.png" alt="ターミナルの行を選択すると、右上にAdd to Chatと⌘Lが出る">
+          <figcaption>エラーを選択すると Add to Chat が出ます。押すと右のチャットに渡ります</figcaption>
+        </figure>
+        <p class="note">NetlifyのFailedと同じ考え方です。英語のログは、そのまま渡せば Cursor が読みます。</p>
+
+        <h2>作業の流れ</h2>
+        <ol>
+          <li>案件のフォルダをCursorで開く（<strong>File → Open Folder</strong>）。または <a href="github-desktop.html">GitHub Desktopの Open in Cursor</a>。</li>
+          <li>ターミナルで <code>npm run dev</code> を打って、自分のPCでサイトを見る。</li>
+          <li>左のファイル一覧から、直したいファイルを選ぶ。</li>
+          <li>直す。文章だけの修正なら、HTMLの日本語部分だけを書き換える。</li>
+          <li>保存する（<code>⌘ + S</code>）。保存しないと次の工程に出てきません。</li>
+          <li>ブラウザで見た目を確認する。</li>
+          <li><a href="github-desktop.html">GitHub Desktop</a> に移り、コミットとプッシュをする。</li>
+        </ol>
+
+        <h2>AIに頼むとき</h2>
+        <p>右のチャットに、日本語で書きます。<code>⌘ + L</code> で開きます。スクショを添付して「このエラーを直してください」と頼む使い方も、<a href="netlify.html">NetlifyのFailed</a> で使います。</p>
+        <div class="grid-2">
+          <div class="card">
+            <h3>チャット（<code>⌘ + L</code>）</h3>
+            <p>「このページに〇〇のセクションを足して」のように、日本語で頼めます。</p>
+            <ul>
+              <li>直したいファイルを開いた状態で聞く</li>
+              <li>どのファイルの、どこを、どう変えたいかを書く</li>
+              <li>提案された変更は <strong>Review</strong> で自分の目で読んでから通す</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>インライン編集（<code>⌘ + K</code>）</h3>
+            <p>選んだ範囲だけを直したいときに使います。</p>
+            <ul>
+              <li>直す範囲を選択してから呼び出す</li>
+              <li>「文言をやさしくして」など、小さく頼む</li>
+              <li>一度に大きく頼むと、関係ない場所まで変わる</li>
+            </ul>
+          </div>
+        </div>
+        <figure class="scene is-ui">
+          <img src="../img/step-cursor-chat.png" alt="Cursorの右チャット。日本語の依頼と、複数ファイルの変更案、Reviewボタンが見える">
+          <figcaption>右のチャット。変更が出たら Review を押して、中身を見てから採用します</figcaption>
+        </figure>
+        <h3>モデルの切り替え</h3>
+        <p>チャット下のモデル名をクリックすると、使うAIを変えられます。普段の文言直しは速め、難しい不具合は強め、で十分です。迷ったら今選ばれているままで進めてください。</p>
+        <figure class="scene is-ui">
+          <img src="../img/step-cursor-model.png" alt="Cursorのモデル選択。Cursor Grok 4.6 Extra High Fastが選ばれている">
+          <figcaption>チャット下のモデル名をクリックして切り替えます</figcaption>
+        </figure>
+        <p class="note">AIの提案をそのまま通さないでください。お客様の実名データ、ID、パスワード、社内金額をチャットに貼らないのも同じ理由です。判断の責任は、最後まで実装リードにあります。</p>
+
+        <h2>やってはいけないこと</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>これをすると</th>
+              <th>こうなる</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>保存せずにGitHub Desktopを開く</td>
+              <td>変更が見つからず、古いままクラウドに送られる</td>
+            </tr>
+            <tr>
+              <td>何日分もまとめて直す</td>
+              <td>どこで壊れたか分からなくなり、戻せない</td>
+            </tr>
+            <tr>
+              <td>パスワードやAPIキーをファイルに直書きする</td>
+              <td>GitHubに残り、消しても履歴から取り出せてしまう</td>
+            </tr>
+            <tr>
+              <td>他の人の作業中に同じファイルを直す</td>
+              <td>プッシュのときに変更が衝突する</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>次に進む合図</h2>
+        <ul class="checklist">
+          <li>直したファイルをすべて保存した</li>
+          <li>ブラウザで見た目を自分で確認した</li>
+          <li>パスワードやお客様の実名データを書いていない</li>
+        </ul>
+
+        <nav class="pager">
+          <a href="index.html"><span>前</span>ツール全体の流れ</a>
+          <a href="github-desktop.html"><span>次</span>② GitHub Desktop</a>
+        </nav>
+      </div>
+    </main>
+  </div>
+  <script src="../js/app.js"></script>
+</body>
+</html>

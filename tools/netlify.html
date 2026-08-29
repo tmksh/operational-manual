@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Netlifyの使い方 | SHINJIDAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/manual.css">
+</head>
+<body>
+  <button class="menu-toggle" id="menu-toggle" aria-expanded="false">メニュー</button>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page">
+        <div class="tool-head">
+          <span class="tool-logo"><img src="../img/logos/netlify.svg" alt="Netlifyのロゴ"></span>
+          <h1>Netlify</h1>
+        </div>
+        <p class="lead">Webサイトを公開する場所です。GitHubと連携していて、コードを送ると自動でサイトを更新します。</p>
+
+        <div class="meta">
+          <div class="meta-item"><span>置き場所</span><strong>クラウド</strong></div>
+          <div class="meta-item"><span>役割</span><strong>Webサイトの公開・自動反映</strong></div>
+          <div class="meta-item"><span>受け取る元</span><strong>GitHub</strong></div>
+          <div class="meta-item"><span>公式サイト</span><strong><a href="https://www.netlify.com/" target="_blank" rel="noopener">netlify.com</a></strong></div>
+        </div>
+
+        <h2>ひとことで言うと</h2>
+        <p><a href="github.html">GitHub</a> にコードをアップすると、Netlifyがそれを見つけて、自動でサイトを作り直して公開します。人が「公開ボタン」を押す作業はありません。</p>
+        <p>お客様には「サイトが実際に置いてあるサーバーです。更新すると数分で反映されます」と説明します。</p>
+        <p class="note">反映は即時ではありません。プッシュから公開まで1〜3分ほどかかります。お客様と画面を見ながら直すときは、この待ち時間を先に伝えておきます。</p>
+
+        <h2>公開までの流れ</h2>
+        <ol>
+          <li><a href="github-desktop.html">GitHub Desktop</a> で <strong>Push origin</strong> を押す。</li>
+          <li>Netlifyがそれを検知して、自動でビルド（サイトの組み立て）を始める。</li>
+          <li>Netlifyの左メニュー <strong>Deploys</strong> を開く。進行中の行が出る。</li>
+          <li><strong>Published</strong> と緑のバッジがつけば成功。Failed なら下の手順で直して、もう一度プッシュする。</li>
+        </ol>
+
+        <h2>プッシュしたあとの確認</h2>
+        <p><a href="github-desktop.html">GitHub Desktop</a> でプッシュしたら、Netlifyの左メニュー <strong>Deploys</strong> を開きます。一覧のいちばん上が、今送ったものです。</p>
+        <figure class="scene is-ui">
+          <img src="../img/step-netlify-deploys.png" alt="NetlifyのDeploys画面。左メニューのDeploysが選ばれ、一覧の先頭にPublishedと緑のバッジがついている">
+          <figcaption>左メニューの Deploys。プッシュしたあとは、この一覧の先頭を見ます</figcaption>
+        </figure>
+
+        <h3>成功したとき</h3>
+        <p><strong>Published</strong> と、緑の丸いバッジ（チェック）がついていれば成功です。公開URLを開いて、直した内容が出ているか確認します。</p>
+        <figure class="scene is-ui">
+          <img src="../img/step-netlify-published.png" alt="Deploys一覧の先頭。Production: main の横にPublishedの緑バッジと緑のチェックがついている">
+          <figcaption>Published と緑のバッジ。これが「公開できた」の目印です</figcaption>
+        </figure>
+
+        <h3>Failed のとき</h3>
+        <p>赤い <strong>Failed</strong> はエラーです。前回の Published がそのまま公開され続けるので、サイトが真っ白になることはありません。直して、もう一度プッシュします。</p>
+        <figure class="scene is-ui">
+          <img src="../img/step-netlify-failed.png" alt="Deploys一覧。Failedの赤いバッジと Exposed secrets detected の警告が出ている行">
+          <figcaption>Failed の行。ここをクリックして、中のログを開きます</figcaption>
+        </figure>
+        <ol>
+          <li>Failed の行をクリックして、Deploy log を開く。</li>
+          <li>赤い <strong>Failed</strong> のところと、ログの赤い行を画面に収める。</li>
+          <li>その部分をスクショする。</li>
+          <li><a href="cursor.html">Cursor</a> のチャットにスクショを添付して、「このエラーを直してください」と送る。</li>
+          <li>直してもらったら、もう一度 <a href="github-desktop.html">GitHub Desktop</a> でプッシュする。</li>
+          <li>Deploys が Published になるまで、同じ手順を繰り返す。</li>
+        </ol>
+        <figure class="scene is-ui">
+          <img src="../img/step-netlify-log.png" alt="Deploy log画面。InitializingはComplete、Buildingは赤いFailedバッジになっている">
+          <figcaption>クリックすると Deploy log が開きます。Building が Failed になっている行が入口です</figcaption>
+        </figure>
+        <figure class="scene is-ui">
+          <img src="../img/step-netlify-error.png" alt="ビルドログの赤い行。Secrets scanning found と、検出されたキー名とファイル名が表示されている">
+          <figcaption>この赤い部分をスクショして、Cursorのチャットに添付します</figcaption>
+        </figure>
+        <p class="note">ログは英語でも、スクショごと渡せば Cursor が読めます。自分で訳さなくて大丈夫です。直したあとにプッシュし忘れると、公開は古いままです。</p>
+
+        <h2>環境変数（接続キー）</h2>
+        <p><a href="supabase.html">Supabase</a> につなぐ案件では、接続キーをコードではなくNetlify側に設定します。左メニューの <strong>Project configuration</strong> を開き、その下の <strong>Environment variables</strong> です。</p>
+        <figure class="scene is-ui">
+          <img src="../img/step-netlify-config.png" alt="NetlifyのProject configuration画面。左メニューにEnvironment variablesがある">
+          <figcaption>左メニューの Project configuration。ここから Environment variables に進みます</figcaption>
+        </figure>
+        <figure class="scene is-ui">
+          <img src="../img/step-netlify-env.png" alt="Environment variables画面。Add a variableボタンと、登録済みのキー名の一覧">
+          <figcaption>キー名が並ぶ画面。右上の Add a variable で足します。値そのものは一覧には出ません</figcaption>
+        </figure>
+        <ul>
+          <li>キーをコードに直書きすると、GitHubの履歴に残ってしまう</li>
+          <li>ここに入れておけば、公開されたサイトからだけ使える</li>
+          <li>設定を変えたら、もう一度デプロイしないと反映されない</li>
+        </ul>
+        <p class="note">「ローカルでは動くのに、公開したらデータだけ出ない」の原因は、ほとんどがこの設定漏れです。</p>
+
+        <h2>もとに戻したいとき</h2>
+        <p>公開後に問題が見つかったら、Deploys画面から前の状態に戻せます。</p>
+        <ol>
+          <li>Deploys で、正常だった Published の行を開く。</li>
+          <li><strong>Publish deploy</strong> を押す。</li>
+          <li>数十秒でその時点の状態に戻る。</li>
+        </ol>
+        <p>戻したあとで、コード側の原因を落ち着いて直します。お客様の業務が止まっているときは、直すより先に戻すのが正解です。</p>
+
+        <h2>困ったとき</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>起きたこと</th>
+              <th>どうするか</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>直したのに変わらない</td>
+              <td>プッシュ済みか → Deploysが Published か → ブラウザを更新（<code>⌘ + Shift + R</code>）</td>
+            </tr>
+            <tr>
+              <td>Failed になった</td>
+              <td>行をクリック → 赤い部分をスクショ → Cursorに「このエラーを直してください」→ 直したら再度プッシュ</td>
+            </tr>
+            <tr>
+              <td>データだけ表示されない</td>
+              <td>環境変数の設定漏れを疑う</td>
+            </tr>
+            <tr>
+              <td>独自ドメインにしたい</td>
+              <td>Domain management から設定。DNSの切り替えは <a href="../phases/05-production.html">05 移行・本番</a> で扱う</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>次に進む合図</h2>
+        <ul class="checklist">
+          <li>Deploys が Published になっている（Failed なら直して再度プッシュした）</li>
+          <li>公開URLを自分で開いて、反映を目で確認した</li>
+          <li>Supabaseを使う案件は、環境変数を設定した</li>
+        </ul>
+
+        <nav class="pager">
+          <a href="supabase.html"><span>前</span>④ Supabase</a>
+          <a href="../phases/05-production.html"><span>次</span>05 移行・本番</a>
+        </nav>
+      </div>
+    </main>
+  </div>
+  <script src="../js/app.js"></script>
+</body>
+</html>

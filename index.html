@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>案件の進め方 | SHINJIDAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/manual.css">
+</head>
+<body>
+  <a class="skip" href="#content">本文へ</a>
+  <button class="menu-toggle" id="menu-toggle" aria-expanded="false">メニュー</button>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main" id="content">
+      <section class="hero">
+        <div class="hero-inner">
+          <div class="kicker">SHINJIDAI</div>
+          <h1>案件の進め方</h1>
+          <p class="lead">新しい案件が入ったら、この6工程を順番に進めます。お客様に公開している <a href="https://shinjidai.co.jp/development-process">開発体制・品質管理</a> と同じ流れです。</p>
+          <nav class="flow" aria-label="6つの工程">
+            <a href="phases/01-hearing.html"><span class="num">01</span><span class="name">ヒアリング<br>課題整理</span></a>
+            <a href="phases/02-requirements.html"><span class="num">02</span><span class="name">要件定義<br>設計</span></a>
+            <a href="phases/03-contract.html"><span class="num">03</span><span class="name">見積<br>契約</span></a>
+            <a href="phases/04-development.html"><span class="num">04</span><span class="name">開発<br>検証</span></a>
+            <a href="phases/05-production.html"><span class="num">05</span><span class="name">移行<br>本番</span></a>
+            <a href="phases/06-maintenance.html"><span class="num">06</span><span class="name">保守<br>改善</span></a>
+          </nav>
+        </div>
+      </section>
+
+      <div class="page">
+        <h2>1枚でわかる流れ</h2>
+        <figure class="scene is-strip">
+          <img src="img/photo-journey.jpg" alt="3人が並んでオフィスの廊下を歩いている写真">
+          <figcaption>前の工程が終わっていない仕事は、先に進めません。急ぎのときは順番を変えず、範囲を小さくします。</figcaption>
+        </figure>
+        <table>
+          <thead>
+            <tr>
+              <th>工程</th>
+              <th>やること</th>
+              <th>次に進む合図</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="phases/01-hearing.html">01 ヒアリング</a></td>
+              <td>困っていることを聞き、第1段階の範囲を切る</td>
+              <td>受ける / 待つ / やめる を書いた</td>
+            </tr>
+            <tr>
+              <td><a href="phases/02-requirements.html">02 要件定義</a></td>
+              <td>画面・データ・権限・連携・非機能を文書にする</td>
+              <td>完了定義が、誰が読んでも同じ意味になる</td>
+            </tr>
+            <tr>
+              <td><a href="phases/03-contract.html">03 見積・契約</a></td>
+              <td>内訳を積み、前提と除外を書く</td>
+              <td>発注か契約の事実がある</td>
+            </tr>
+            <tr>
+              <td><a href="phases/04-development.html">04 開発・検証</a></td>
+              <td>デザインと開発を同時に進め、初稿 → 修正 → テスト</td>
+              <td>お客様が操作して合格にした記録がある</td>
+            </tr>
+            <tr>
+              <td><a href="phases/05-production.html">05 移行・本番</a></td>
+              <td>データと権限を入れ、現場に渡す</td>
+              <td>本番で仕事が回っている</td>
+            </tr>
+            <tr>
+              <td><a href="phases/06-maintenance.html">06 保守・改善</a></td>
+              <td>壊れの対応と、新しい機能を分ける</td>
+              <td>窓口と、保守に含む範囲が決まっている</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note">キックオフMTGは 02 要件定義の入口、検収は 04 開発・検証の出口として扱います。工程は増やしません。お客様への説明と社内の手順を同じにするためです。</p>
+
+        <h2>いつ何を確定させるか</h2>
+        <p>あとで動くと後戻りが大きいものから順に確定させます。ここが決まっていないまま先へ進めると、作り直しになります。</p>
+        <table>
+          <thead>
+            <tr>
+              <th>タイミング</th>
+              <th>ここで確定させるもの</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="phases/02-requirements.html">キックオフMTG</a></td>
+              <td>目的とゴール、対象ユーザーの種別、管理画面の数、権限の数、機能のカテゴリ、外部連携の有無</td>
+            </tr>
+            <tr>
+              <td><a href="phases/02-requirements.html">要件定義</a></td>
+              <td>管理画面構成、権限・ロール定義、機能一覧、機能ごとの大枠フロー、サイトマップ、画面遷移</td>
+            </tr>
+            <tr>
+              <td><a href="phases/04-development.html">初稿提出</a></td>
+              <td>デザイン、レイアウト構成、リンク先、カラー、フォント、アニメーション・エフェクトの有無</td>
+            </tr>
+            <tr>
+              <td><a href="phases/04-development.html">修正・改善</a></td>
+              <td>不具合、表示崩れ、文言や改行、画像の差し替え、動きの大枠</td>
+            </tr>
+            <tr>
+              <td><a href="phases/04-development.html">動作テスト・検収</a></td>
+              <td>残りの不具合、アニメーション・エフェクトの動き</td>
+            </tr>
+            <tr>
+              <td><a href="phases/05-production.html">リリース・引き渡し</a></td>
+              <td>デバッグを終えて、正式に稼働開始。保守運用に入るかを決める</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>うちの進め方の特徴</h2>
+        <div class="grid-3">
+          <div class="card">
+            <h3>内部ライブラリがある</h3>
+            <p>認証・権限管理・管理画面は保有しているものを使います。規模が大きいほど、スピードと金額で差が出ます。</p>
+          </div>
+          <div class="card">
+            <h3>デザインと開発を同時に</h3>
+            <p>「UIが決まらないと実装できない」の順番に縛られません。中身から先に作れる分だけ短くなります。</p>
+          </div>
+          <div class="card">
+            <h3>資料を見えるところに</h3>
+            <p>議事録・仕様書・操作方法をWebページにして共有します。認識のずれによる後戻りを消します。</p>
+          </div>
+        </div>
+
+        <h2>使うツール</h2>
+        <p>04 開発・検証 から先は、5つのツールを行き来します。<a href="tools/index.html">ローカルとクラウドの分け方</a>を先に押さえると、どこを見ればいいか迷いません。</p>
+        <div class="toolgrid">
+          <a class="tool-card" href="tools/cursor.html">
+            <span class="tool-logo"><img src="img/logos/cursor.svg" alt=""></span>
+            <strong>① Cursor</strong>
+            <span class="desc">ローカル / コードを書く・編集する</span>
+          </a>
+          <a class="tool-card" href="tools/github-desktop.html">
+            <span class="tool-logo"><img src="img/logos/github-desktop.svg" alt=""></span>
+            <strong>② GitHub Desktop</strong>
+            <span class="desc">ローカル / 変更を保存してクラウドへ送る</span>
+          </a>
+          <a class="tool-card" href="tools/github.html">
+            <span class="tool-logo"><img src="img/logos/github.svg" alt=""></span>
+            <strong>③ GitHub</strong>
+            <span class="desc">クラウド / コードを保管・共有する</span>
+          </a>
+          <a class="tool-card" href="tools/supabase.html">
+            <span class="tool-logo"><img src="img/logos/supabase.svg" alt=""></span>
+            <strong>④ Supabase</strong>
+            <span class="desc">クラウド / 会員情報や投稿データを持つ</span>
+          </a>
+          <a class="tool-card" href="tools/netlify.html">
+            <span class="tool-logo"><img src="img/logos/netlify.svg" alt=""></span>
+            <strong>⑤ Netlify</strong>
+            <span class="desc">クラウド / Webサイトを公開する</span>
+          </a>
+        </div>
+
+        <h2>担当</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>役割</th>
+              <th>やること</th>
+              <th>主に出てくる工程</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>案件オーナー</td>
+              <td>期限、お金、お客様への公式な返事</td>
+              <td>03 / 05 / 06</td>
+            </tr>
+            <tr>
+              <td>営業</td>
+              <td>話を聞いて、受けるかを判断する</td>
+              <td>01</td>
+            </tr>
+            <tr>
+              <td>要件定義担当</td>
+              <td>やる / やらない を紙にする</td>
+              <td>02</td>
+            </tr>
+            <tr>
+              <td>実装リード</td>
+              <td>作る。変更で何がずれるかを説明する</td>
+              <td>04 / 05</td>
+            </tr>
+            <tr>
+              <td>お客様窓口</td>
+              <td>連絡を一本化し、日程と確認を進める</td>
+              <td>04 / 05 / 06</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note">少人数なら1人が兼ねてよいです。兼ねるときほど、決まったことを紙に残します。</p>
+
+        <h2>迷ったとき</h2>
+        <ul>
+          <li>お客様が急いでいる → 工程は飛ばさず、範囲を小さくする。<a href="phases/01-hearing.html">01 の「案件の大きさ」</a>を見る。</li>
+          <li>「ついでにこれも」と言われた → <a href="phases/04-development.html">04 の「変更の締め切り」</a>で、今回やる / 次に送る / やらない に分ける。</li>
+          <li>終わりが見えない → <a href="phases/02-requirements.html">02 の「完了定義」</a>が書けているか戻って確かめる。</li>
+        </ul>
+      </div>
+    </main>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

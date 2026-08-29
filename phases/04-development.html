@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>04 開発・検証 | SHINJIDAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/manual.css">
+</head>
+<body>
+  <button class="menu-toggle" id="menu-toggle" aria-expanded="false">メニュー</button>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page">
+        <nav id="steps"></nav>
+
+        <div class="phase-head">
+          <div>
+            <div class="kicker">PHASE 04</div>
+            <h1>開発・検証</h1>
+            <p class="lead">段階的に実装し、関係者レビューと現場検証を挟みながら品質を高めます。仕様変更は影響と優先度を明示して扱います。</p>
+          </div>
+          <figure class="scene">
+            <img src="../img/photo-04-build.jpg" alt="2人が並んで、片方はタブレットで画面のレイアウトを描き、もう片方はノートパソコンで実装している写真">
+            <figcaption>デザインと開発は同時に進めます</figcaption>
+          </figure>
+        </div>
+
+        <div class="meta">
+          <div class="meta-item"><span>担当</span><strong>実装リード</strong></div>
+          <div class="meta-item"><span>入口</span><strong>初稿提出</strong></div>
+          <div class="meta-item"><span>出口</span><strong>動作テスト・検収</strong></div>
+          <div class="meta-item"><span>定例</span><strong>2週に1回</strong></div>
+        </div>
+
+        <h2>進め方</h2>
+        <p>デザインが全部決まるのを待ちません。認証・権限管理・管理画面は内部ライブラリがあるので、中身から先に作れます。デザインと開発を同時に進めて、初稿 → 修正 → テストの順に確定させていきます。</p>
+        <table>
+          <thead>
+            <tr>
+              <th>段階</th>
+              <th>ここで確定させるもの</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>初稿提出</td>
+              <td>デザイン、レイアウト構成、リンク先、カラー、フォント、アニメーション・エフェクトの有無</td>
+            </tr>
+            <tr>
+              <td>修正・改善</td>
+              <td>不具合、表示崩れ、文言や改行、画像の差し替え、動きの大枠</td>
+            </tr>
+            <tr>
+              <td>動作テスト・検収</td>
+              <td>残りの不具合、アニメーション・エフェクトの動き</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>2週に1回、先方と定例を組みます。見せる → 決める → 次までの宿題を確認する。資料・議事録・仕様書・操作方法は見えるところに置き、認識のずれで後戻りしないようにします。</p>
+
+        <h3>初稿の出し方</h3>
+        <p>案件によって、モックアップを作る場合と、機能一覧だけで進める場合があります。</p>
+        <div class="grid-2">
+          <div class="card">
+            <h3>モックアップを作る</h3>
+            <p>Cursorで画面だけ先に作り、お客様に触ってもらいます。</p>
+            <ul>
+              <li>画面の数が多い、現場の人が使い方を想像しにくいとき</li>
+              <li>並び順やボタンの位置で意見が割れそうなとき</li>
+              <li>中身は動かなくてよい。見た目と流れだけ</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>機能一覧だけで進める</h3>
+            <p><a href="02-requirements.html">02で作った機能一覧</a>のページを、一緒に読みます。</p>
+            <ul>
+              <li>既にある画面の直し、業務がはっきりしているとき</li>
+              <li>データの正しさや権限が主で、見た目の判断が少ないとき</li>
+              <li>迷ったらこちらから始め、意見が割れた画面だけモックを作る</li>
+            </ul>
+          </div>
+        </div>
+        <p class="note">モックアップは確認のための試作です。お客様が「もう出来ている」と受け取らないよう、「見た目だけで、保存はできません」と先に言います。</p>
+
+        <h2>使うツール</h2>
+        <p>開発から公開までに5つのツールを使います。<a href="../tools/index.html">ローカル（自分のPC内）とクラウド</a>に分けて覚えると迷いません。各ツールの使い方は、それぞれのページにまとめています。</p>
+        <div class="toolgrid">
+          <a class="tool-card" href="../tools/cursor.html">
+            <span class="tool-logo"><img src="../img/logos/cursor.svg" alt=""></span>
+            <strong>① Cursor</strong>
+            <span class="desc">ローカル / コードを書く・編集する</span>
+          </a>
+          <a class="tool-card" href="../tools/github-desktop.html">
+            <span class="tool-logo"><img src="../img/logos/github-desktop.svg" alt=""></span>
+            <strong>② GitHub Desktop</strong>
+            <span class="desc">ローカル / 変更を保存してクラウドへ送る</span>
+          </a>
+          <a class="tool-card" href="../tools/github.html">
+            <span class="tool-logo"><img src="../img/logos/github.svg" alt=""></span>
+            <strong>③ GitHub</strong>
+            <span class="desc">クラウド / コードを保管・共有する</span>
+          </a>
+          <a class="tool-card" href="../tools/supabase.html">
+            <span class="tool-logo"><img src="../img/logos/supabase.svg" alt=""></span>
+            <strong>④ Supabase</strong>
+            <span class="desc">クラウド / 会員情報や投稿データを持つ</span>
+          </a>
+          <a class="tool-card" href="../tools/netlify.html">
+            <span class="tool-logo"><img src="../img/logos/netlify.svg" alt=""></span>
+            <strong>⑤ Netlify</strong>
+            <span class="desc">クラウド / Webサイトを公開する</span>
+          </a>
+        </div>
+        <p class="note">お客様に説明するときは、ツール名より役割で伝えます。「作る場所」「置く場所」「見せる場所」の3つに分けると、初めての方でも1回で理解できます。</p>
+
+        <h2>変更の締め切り</h2>
+        <div class="split">
+          <ul>
+            <li>修正・変更は、リリース日から逆算して<strong>1か月半前まで</strong>にもらう。それ以降は次のリリースに送る。</li>
+            <li>返事の前に、影響（範囲 / 日数 / 金額）を伝える。</li>
+            <li>「今回やる / 次に送る / やらない」のどれかにして、決めた日を残す。</li>
+          </ul>
+          <figure class="scene">
+            <img src="../img/photo-04-change.jpg" alt="付箋を3つのかたまりに分けて貼り替えている写真">
+            <figcaption>3つに分けてから返事をします</figcaption>
+          </figure>
+        </div>
+        <p class="note">1か月半は、リリース日が決まっている案件の目安です。2週間〜1か月で終わる小さい案件は、リリースの2週間前までにします。どちらもキックオフMTGで伝えます。あとから言うと「間に合わないのは当社の都合」になります。</p>
+
+        <h2>出口：動作テスト・検収</h2>
+        <div class="split">
+          <ul>
+            <li>完了定義を1つずつ、お客様が操作して確認する。</li>
+            <li>判定は「合格 / 残件つき合格 / 不合格」。仕事が止まるものだけ不合格にする。</li>
+            <li>約束に無い「もっとこうしたい」は、別途見積として改めてご相談します。検収の判定には混ぜない。</li>
+          </ul>
+          <figure class="scene">
+            <img src="../img/photo-04-acceptance.jpg" alt="お客様がパソコンを操作し、当社の担当は横で見ながら記録している写真">
+            <figcaption>操作するのはお客様。当社は横で見て記録します</figcaption>
+          </figure>
+        </div>
+
+        <h2>次に進む合図</h2>
+        <ul class="checklist">
+          <li>初稿でデザインが確定し、定例の記録が残っている</li>
+          <li>合格、または本番を止めない残件つき合格になっている</li>
+          <li>受けた変更が、要件定義書の最新版に入っている</li>
+        </ul>
+
+        <nav class="pager">
+          <a href="03-contract.html"><span>前</span>03 見積・契約</a>
+          <a href="05-production.html"><span>次</span>05 移行・本番</a>
+        </nav>
+      </div>
+    </main>
+  </div>
+  <script src="../js/app.js"></script>
+</body>
+</html>

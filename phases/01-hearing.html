@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>01 ヒアリング・課題整理 | SHINJIDAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/manual.css">
+</head>
+<body>
+  <button class="menu-toggle" id="menu-toggle" aria-expanded="false">メニュー</button>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page">
+        <nav id="steps"></nav>
+
+        <div class="phase-head">
+          <div>
+            <div class="kicker">PHASE 01</div>
+            <h1>ヒアリング・課題整理</h1>
+            <p class="lead">業務・データ・制約・成功条件を整理し、効果の出やすい範囲を切り出します。要件が固まっていない段階からの相談も可能です。</p>
+          </div>
+          <figure class="scene">
+            <img src="../img/photo-01-hearing.jpg" alt="お客様2人の話を、当社1人が聞いてノートにメモを取っている写真">
+            <figcaption>聞く側は1人でよい。その場でメモに残す</figcaption>
+          </figure>
+        </div>
+
+        <div class="meta">
+          <div class="meta-item"><span>担当</span><strong>営業</strong></div>
+          <div class="meta-item"><span>始まり</span><strong>問い合わせ・紹介</strong></div>
+          <div class="meta-item"><span>終わり</span><strong>受ける / 待つ / やめる</strong></div>
+        </div>
+
+        <h2>聞くこと</h2>
+        <p>この4つを聞けば足ります。答えが出ないものは「未確認」と書いて次に進みます。</p>
+        <div class="grid-2">
+          <div class="card">
+            <h3>業務</h3>
+            <ul>
+              <li>誰が、何に、1日何分使っているか</li>
+              <li>その仕事が止まると、何がずれるか</li>
+              <li>今のやり方の手順（できれば実物を見せてもらう）</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>データ</h3>
+            <ul>
+              <li>今どこに入っているか（Excel / 紙 / 他社サービス）</li>
+              <li>件数と、増えるペース</li>
+              <li>移したいものと、捨ててよいもの</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>制約</h3>
+            <ul>
+              <li>希望の時期と、その理由</li>
+              <li>予算（「未確認」でよい）</li>
+              <li>個人情報を扱うか</li>
+              <li>お金を決める人 / 毎日使う人 / IDを管理する人の名前</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>成功条件</h3>
+            <ul>
+              <li>どうなったら成功か、お客様の言葉で1〜3行</li>
+              <li>「便利にしたい」で止めず、時間・件数・回数で言い直す</li>
+            </ul>
+          </div>
+        </div>
+        <p class="note">聞いた内容は、この4つの見出しのまま案件フォルダのメモに残します。あとの工程は全部このメモから始まります。</p>
+
+        <h2>効果の出やすい範囲を切り出す</h2>
+        <ul>
+          <li>全部は受けません。いちばん手が止まっている<strong>1業務</strong>を第1段階にします。</li>
+          <li>切り方は機能名ではなく業務の名前で。「検索機能」ではなく「翌日の配車を決める」。</li>
+          <li>金額を聞かれたら「要件定義のあとで確定します」と、口とメールの両方に残します。</li>
+        </ul>
+
+        <h3>案件の大きさで、手順を減らす</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>大きさ</th>
+              <th>たとえ</th>
+              <th>省いてよいこと</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>小さな直し</td>
+              <td>文言、表示、不具合1件</td>
+              <td>キックオフは今の連絡手段で代替。要件定義は差分メモでよい</td>
+            </tr>
+            <tr>
+              <td>ふつう</td>
+              <td>1業務を作る、サイトの作り直し</td>
+              <td>省かない。ただし要件定義書は5ページ前後で足りる</td>
+            </tr>
+            <tr>
+              <td>大きい</td>
+              <td>何業務も、他システムとつなぐ</td>
+              <td>省かずに段階へ分ける。第1段階だけ先に契約する</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>次に進む合図</h2>
+        <ul class="checklist">
+          <li>業務・データ・制約・成功条件が、メモに埋まっている</li>
+          <li>第1段階が、業務の名前で切れている</li>
+          <li>受ける / 待つ / やめる を、理由つきで書いた</li>
+        </ul>
+        <p class="note">決める人がいない、予算が不明、期限だけ先に決まっている。この3つが揃ったら「待つ」にします。</p>
+
+        <nav class="pager">
+          <a href="../index.html"><span>戻る</span>全体の流れ</a>
+          <a href="02-requirements.html"><span>次</span>02 要件定義・設計</a>
+        </nav>
+      </div>
+    </main>
+  </div>
+  <script src="../js/app.js"></script>
+</body>
+</html>

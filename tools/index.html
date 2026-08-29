@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>使うツールの全体像 | SHINJIDAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/manual.css">
+</head>
+<body>
+  <button class="menu-toggle" id="menu-toggle" aria-expanded="false">メニュー</button>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page">
+        <div class="kicker">TOOLS</div>
+        <h1>使うツールの全体像</h1>
+        <p class="lead">開発から公開までに5つのツールを使います。まず「自分のPCの中でやること（ローカル）」と「インターネット側でやること（クラウド）」の2つに分けて覚えると、迷わなくなります。</p>
+
+        <h2>ローカルとクラウド</h2>
+        <div class="blueprint" aria-label="ツールの設計図">
+          <div class="blueprint-band is-local">
+            <p class="blueprint-label">ローカル<span>自分のPC内・手を動かす場所</span></p>
+            <div class="blueprint-flow">
+              <a class="blueprint-node" href="cursor.html">
+                <span class="num">①</span>
+                <span class="tool-logo"><img src="../img/logos/cursor.svg" alt=""></span>
+                <strong>Cursor</strong>
+                <span class="desc">コードを書く</span>
+              </a>
+              <span class="blueprint-arrow">編集する</span>
+              <a class="blueprint-node" href="github-desktop.html">
+                <span class="num">②</span>
+                <span class="tool-logo"><img src="../img/logos/github-desktop.svg" alt=""></span>
+                <strong>GitHub Desktop</strong>
+                <span class="desc">保存して送る</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="blueprint-transfer">
+            <span>プッシュ</span>
+            <small>クラウドへ送る</small>
+          </div>
+
+          <div class="blueprint-band is-cloud">
+            <p class="blueprint-label">クラウド<span>インターネット側・保管と公開</span></p>
+            <div class="blueprint-flow">
+              <a class="blueprint-node" href="github.html">
+                <span class="num">③</span>
+                <span class="tool-logo"><img src="../img/logos/github.svg" alt=""></span>
+                <strong>GitHub</strong>
+                <span class="desc">コードを保管する</span>
+              </a>
+              <span class="blueprint-arrow">自動で反映</span>
+              <a class="blueprint-node" href="netlify.html">
+                <span class="num">⑤</span>
+                <span class="tool-logo"><img src="../img/logos/netlify.svg" alt=""></span>
+                <strong>Netlify</strong>
+                <span class="desc">サイトを公開する</span>
+              </a>
+              <span class="blueprint-arrow">公開</span>
+              <div class="blueprint-node is-end">
+                <span class="num">出口</span>
+                <strong>公開サイト</strong>
+                <span class="desc">お客様が見る画面</span>
+              </div>
+            </div>
+            <div class="blueprint-data">
+              <span class="blueprint-arrow is-down">サイトがデータを読む</span>
+              <a class="blueprint-node is-data" href="supabase.html">
+                <span class="num">④</span>
+                <span class="tool-logo"><img src="../img/logos/supabase.svg" alt=""></span>
+                <strong>Supabase</strong>
+                <span class="desc">会員情報や投稿などのデータ置き場。サイト本体ではない</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <p class="note">お客様に説明するときは「作る場所」「置く場所」「見せる場所」と言い換えると伝わります。ツール名を先に出すと、それだけで身構えられます。</p>
+
+        <h2>1本の流れで見る</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>順番</th>
+              <th>ツール</th>
+              <th>ここで何が起きるか</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>①</td>
+              <td><a href="cursor.html">Cursor</a></td>
+              <td>自分のPCの中にあるサイトのファイルを直す。この時点では、直したのは自分のPCだけ。</td>
+            </tr>
+            <tr>
+              <td>②</td>
+              <td><a href="github-desktop.html">GitHub Desktop</a></td>
+              <td>直した内容に名前をつけて保存（コミット）し、クラウドへ送る（プッシュ）。</td>
+            </tr>
+            <tr>
+              <td>③</td>
+              <td><a href="github.html">GitHub</a></td>
+              <td>送られたコードが保管される。誰がいつ何を直したかが残る。</td>
+            </tr>
+            <tr>
+              <td>④</td>
+              <td><a href="netlify.html">Netlify</a></td>
+              <td>GitHubの更新を見つけて、自動で公開サイトを作り直す。数分でURLに反映される。</td>
+            </tr>
+            <tr>
+              <td>⑤</td>
+              <td><a href="supabase.html">Supabase</a></td>
+              <td>公開されたサイトが、会員情報や投稿データをここから読み書きする。</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note">Supabaseだけは流れの外にあります。①→②→③→⑤が「サイトそのもの」を運ぶ道で、④は「サイトが使うデータ置き場」です。Cursorで直しても、Supabaseの中身は変わりません。</p>
+
+        <h2>言い換え表</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>専門用語</th>
+              <th>お客様への言い方</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>リポジトリ</td><td>この案件のファイル一式</td></tr>
+            <tr><td>コミット</td><td>名前をつけて保存する</td></tr>
+            <tr><td>プッシュ</td><td>クラウドに送る</td></tr>
+            <tr><td>プル</td><td>クラウドから最新を取ってくる</td></tr>
+            <tr><td>デプロイ</td><td>公開する・反映する</td></tr>
+            <tr><td>データベース</td><td>データの保管場所</td></tr>
+          </tbody>
+        </table>
+
+        <h2>困ったときの見分け方</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>起きたこと</th>
+              <th>見るところ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>直したのにサイトが変わらない</td>
+              <td><a href="github-desktop.html">GitHub Desktop</a> でプッシュ済みか → <a href="netlify.html">Netlify</a> のデプロイが成功しているか</td>
+            </tr>
+            <tr>
+              <td>ログインできない・データが出ない</td>
+              <td><a href="supabase.html">Supabase</a>。サイトの見た目ではなくデータ側の問題</td>
+            </tr>
+            <tr>
+              <td>前の状態に戻したい</td>
+              <td><a href="github.html">GitHub</a>。履歴が残っているので、戻す地点を選べる</td>
+            </tr>
+            <tr>
+              <td>他の人の変更と重なった</td>
+              <td><a href="github-desktop.html">GitHub Desktop</a>。プッシュ前に必ずプルする</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <nav class="pager">
+          <a href="../phases/04-development.html"><span>戻る</span>04 開発・検証</a>
+          <a href="cursor.html"><span>次</span>① Cursor</a>
+        </nav>
+      </div>
+    </main>
+  </div>
+  <script src="../js/app.js"></script>
+</body>
+</html>

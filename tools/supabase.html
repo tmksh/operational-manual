@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Supabaseの使い方 | SHINJIDAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/manual.css">
+</head>
+<body>
+  <button class="menu-toggle" id="menu-toggle" aria-expanded="false">メニュー</button>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page">
+        <div class="tool-head">
+          <span class="tool-logo"><img src="../img/logos/supabase.svg" alt="Supabaseのロゴ"></span>
+          <h1>Supabase</h1>
+        </div>
+        <p class="lead">読み方は「スパベース」。サイトの裏側でデータを管理する場所です。会員情報や投稿内容などを保存します。</p>
+
+        <div class="meta">
+          <div class="meta-item"><span>置き場所</span><strong>クラウド</strong></div>
+          <div class="meta-item"><span>役割</span><strong>データベース・ログイン管理</strong></div>
+          <div class="meta-item"><span>つながる先</span><strong>公開中のWebサイト</strong></div>
+          <div class="meta-item"><span>公式サイト</span><strong><a href="https://supabase.com/" target="_blank" rel="noopener">supabase.com</a></strong></div>
+        </div>
+
+        <h2>ひとことで言うと</h2>
+        <p>Supabaseは「Webサイト本体」ではなく「裏側のデータ管理」です。この言い方をすると、お客様にいちばん早く伝わります。</p>
+        <p>たとえば会員制サイトなら、画面の見た目は <a href="netlify.html">Netlify</a> が配り、その画面に表示される会員名や投稿内容はSupabaseから取ってきています。</p>
+        <p class="note">Supabaseは <a href="cursor.html">Cursor</a> → <a href="github-desktop.html">GitHub Desktop</a> → <a href="github.html">GitHub</a> → <a href="netlify.html">Netlify</a> の流れの外にあります。Cursorでコードを直しても、Supabaseの中のデータは変わりません。逆に、Supabaseのデータを直してもコードは変わりません。別々に扱います。</p>
+
+        <h2>何を持っているか</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Table Editor（データ）</h3>
+            <p>表計算ソフトのような画面で、実際のデータが並びます。</p>
+            <ul>
+              <li>会員一覧、投稿、予約、問い合わせなど</li>
+              <li>1行 ＝ 1件。列 ＝ 項目</li>
+              <li>本番のデータもここに入っている</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Authentication（ログイン）</h3>
+            <p>誰がログインできるかを管理します。</p>
+            <ul>
+              <li>メールアドレスとパスワードの登録</li>
+              <li>パスワード再設定のメール送信</li>
+              <li>ログインできない相談は、まずここを見る</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2>触るときの決まりごと</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>場面</th>
+              <th>やること</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>本番データを直す</td>
+              <td>実装リードの確認を取ってから。1人で判断しない<small>コードと違い、消したら履歴から戻せません</small></td>
+            </tr>
+            <tr>
+              <td>列や表を増やす</td>
+              <td>先に検証環境で試す。本番に直接入れない</td>
+            </tr>
+            <tr>
+              <td>お客様に画面を見せる</td>
+              <td>他のお客様のデータが映り込んでいないか確認する</td>
+            </tr>
+            <tr>
+              <td>接続キーを扱う</td>
+              <td>コードに直書きせず、環境変数に入れる。<a href="netlify.html">Netlify</a> 側にも同じ値を設定する</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note">GitHubは間違えても履歴から戻せますが、Supabaseの本番データは戻せません。この2つは危なさの種類が違う、と覚えてください。</p>
+
+        <h2>お客様への説明例</h2>
+        <div class="grid-2">
+          <div class="card ok">
+            <h3>こう言う</h3>
+            <ul>
+              <li>「サイトで使うデータを保管している場所です」</li>
+              <li>「会員情報や投稿内容はここに入っています」</li>
+              <li>「見た目とは別に、データだけを管理しています」</li>
+            </ul>
+          </div>
+          <div class="card warn">
+            <h3>避ける言い方</h3>
+            <ul>
+              <li>「BaaSでPostgreSQLが…」（伝わりません）</li>
+              <li>「サイトが入っている場所です」（Netlifyと混ざります）</li>
+              <li>「無料なので大丈夫です」（件数が増えると有料です）</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2>困ったとき</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>起きたこと</th>
+              <th>どうするか</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ログインできない</td>
+              <td>Authentication にそのユーザーが登録されているか見る</td>
+            </tr>
+            <tr>
+              <td>データが画面に出ない</td>
+              <td>Table Editor に行があるか → 権限設定（RLS）で止まっていないか</td>
+            </tr>
+            <tr>
+              <td>公開したらデータだけ出ない</td>
+              <td><a href="netlify.html">Netlify</a> 側に接続キーを設定し忘れていないか</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>次に進む合図</h2>
+        <ul class="checklist">
+          <li>本番データを直す前に、実装リードの確認を取った</li>
+          <li>接続キーをコードに直書きしていない</li>
+          <li>お客様に見せる画面に、他社のデータが映っていない</li>
+        </ul>
+
+        <nav class="pager">
+          <a href="github.html"><span>前</span>③ GitHub</a>
+          <a href="netlify.html"><span>次</span>⑤ Netlify</a>
+        </nav>
+      </div>
+    </main>
+  </div>
+  <script src="../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GitHub Desktopの使い方 | SHINJIDAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/manual.css">
+</head>
+<body>
+  <button class="menu-toggle" id="menu-toggle" aria-expanded="false">メニュー</button>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page">
+        <div class="tool-head">
+          <span class="tool-logo"><img src="../img/logos/github-desktop.svg" alt="GitHub Desktopのロゴ"></span>
+          <h1>GitHub Desktop</h1>
+        </div>
+        <p class="lead">Cursorで直した内容を、GitHubへ送るためのアプリです。変更履歴を管理する役割も持ちます。</p>
+
+        <div class="meta">
+          <div class="meta-item"><span>置き場所</span><strong>自分のPC（ローカル）</strong></div>
+          <div class="meta-item"><span>役割</span><strong>変更を保存してクラウドへ送る</strong></div>
+          <div class="meta-item"><span>次に渡す先</span><strong>GitHub</strong></div>
+          <div class="meta-item"><span>公式サイト</span><strong><a href="https://desktop.github.com/" target="_blank" rel="noopener">desktop.github.com</a></strong></div>
+        </div>
+
+        <h2>3つの言葉だけ覚える</h2>
+        <div class="grid-3">
+          <div class="card is-shot">
+            <h3>プル（pull）＝ クラウドから取る</h3>
+            <p>他の人が送った変更を、自分のPCに取り込みます。作業を始める前に毎回やります。</p>
+            <ul>
+              <li>画面に <strong>Pull origin</strong> が出たら押す</li>
+              <li>「GitHubにあるのに、自分のPCに無い」状態をなくす</li>
+              <li>プッシュの前にも、もう一度確認する</li>
+            </ul>
+            <figure class="card-shot">
+              <img src="../img/step-desktop-pull.png" alt="GitHub DesktopのPull origin画面。青いPull originボタンがある">
+              <figcaption>Pull origin。作業の始めに押します</figcaption>
+            </figure>
+          </div>
+          <div class="card is-shot">
+            <h3>コミット（commit）＝ 名前をつけて保存</h3>
+            <p>「ここまでの変更に、こういう名前で区切りをつける」という操作です。まだ自分のPCの中だけの話です。</p>
+            <ul>
+              <li>意味のあるまとまりで区切る</li>
+              <li>名前は「トップページの文言を修正」のように具体的に</li>
+              <li>この区切りが、あとで戻すときの目印になる</li>
+            </ul>
+            <figure class="card-shot">
+              <img src="../img/step-desktop-commit.png" alt="GitHub Desktopのコミット欄。Summaryに名前を書いてCommitボタンがある">
+              <figcaption>Summary に名前を書いて Commit to main</figcaption>
+            </figure>
+          </div>
+          <div class="card is-shot">
+            <h3>プッシュ（push）＝ クラウドに送る</h3>
+            <p>コミットしたものを、<a href="github.html">GitHub</a>（クラウド）へアップロードします。ここで初めて他の人に見えます。</p>
+            <ul>
+              <li>プッシュして初めてバックアップになる</li>
+              <li><a href="netlify.html">Netlify</a> が動き出すのもこの瞬間</li>
+              <li>その日の作業の終わりには必ずプッシュする</li>
+            </ul>
+            <figure class="card-shot">
+              <img src="../img/step-desktop-push-full.png" alt="No local changesの画面。Push commits to the origin remoteと青いPush originボタンがある">
+              <figcaption>Push origin。ここでクラウドへ送ります</figcaption>
+            </figure>
+          </div>
+        </div>
+        <p class="note">順番は、プル → コミット → プッシュです。コミットだけしてプッシュを忘れると、PCが壊れたら消えます。プルを忘れると、他の人の変更と衝突します。</p>
+
+        <h2>クローンしたあと、Cursorを開く</h2>
+        <p>まだ自分のPCにファイルが無いときは、先に <a href="github.html">GitHubの画面でクローン</a> します。緑の <strong>Code</strong> から <strong>Open with GitHub Desktop</strong> です。</p>
+        <p>クローンが終わると、GitHub Desktopに <strong>No local changes</strong> の画面が出ます。ここから <a href="cursor.html">Cursor</a> を開くまでが、作業の入り口です。</p>
+        <ol>
+          <li>真ん中の <strong>Open in Cursor</strong> を押す。</li>
+          <li>Cursorが開いたら、左に案件のファイルが一覧される。ここから編集を始める。</li>
+        </ol>
+        <figure class="scene is-ui">
+          <img src="../img/step-desktop-open-cursor.png" alt="GitHub DesktopのNo local changes画面。Open in Cursorボタンがある">
+          <figcaption>クローン直後の画面。Open in Cursor を押すと、同じフォルダがCursorで開きます</figcaption>
+        </figure>
+        <h3>先に、外部エディタをCursorにしておく</h3>
+        <p>このボタンは、Settingsで選んだエディタの名前になります。最初に1回、外部エディタを <strong>Cursor</strong> にしておかないと、別のアプリが開きます。</p>
+        <ol>
+          <li><strong>Select your editor in Settings</strong> を押す。または GitHub Desktop のメニューから Settings を開く。</li>
+          <li>左の <strong>Integrations</strong> を選ぶ。</li>
+          <li><strong>External editor</strong> を <strong>Cursor</strong> にする。</li>
+          <li><strong>Save</strong> を押す。</li>
+        </ol>
+        <figure class="scene is-ui">
+          <img src="../img/step-desktop-settings-link.png" alt="Open the repository in your external editorの下に、Select your editor in Settingsのリンクがある">
+          <figcaption>Select your editor in Settings。ここから設定画面に入れます</figcaption>
+        </figure>
+        <figure class="scene is-ui">
+          <img src="../img/step-desktop-editor-cursor.png" alt="GitHub DesktopのSettings。IntegrationsのExternal editorがCursorになっている">
+          <figcaption>Integrations → External editor を Cursor にして、Save します</figcaption>
+        </figure>
+        <p class="note">1回設定すれば、次からは <strong>Open in Cursor</strong> と出ます。ショートカットは <code>⌘ + Shift + A</code> です。</p>
+
+        <h2>作業の流れ</h2>
+        <ol>
+          <li>作業を始める前に <strong>Pull origin</strong> を押す。他の人の変更を自分のPCに取り込む。</li>
+          <li>Cursorで直して保存する。</li>
+          <li>GitHub Desktopを開く。左の <strong>Changes</strong> に、直したファイルが並ぶ。</li>
+          <li>送りたいファイルにチェックを入れる。</li>
+          <li>左下の <strong>Summary</strong> に、何をしたかを1行で書く。</li>
+          <li><strong>Commit to main</strong> を押す。まだ自分のPCの中だけ。</li>
+          <li><strong>Push origin</strong> を押す。これでクラウドへ送られる。</li>
+        </ol>
+        <p class="note">右上のボタンは、状況で名前が変わります。取るものがあるときは Pull origin、送るものがあるときは Push origin、どちらも無いときは Fetch origin です。プッシュの前に必ずプルです。順番を逆にすると、他の人の変更と衝突して、その場で解決を迫られます。</p>
+
+        <h2>コミット名の書き方</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>これだと後で困る</th>
+              <th>こう書く</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>update</td>
+              <td>トップページのお問い合わせ文言を修正</td>
+            </tr>
+            <tr>
+              <td>修正</td>
+              <td>04開発ページにツール一覧のリンクを追加</td>
+            </tr>
+            <tr>
+              <td>いろいろ</td>
+              <td>スマホ表示でメニューが重なる不具合を修正</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>戻したいときに探すのは、この1行だけです。ここが雑だと、履歴が残っていても使えません。</p>
+
+        <h2>困ったとき</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>起きたこと</th>
+              <th>どうするか</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>変更が一覧に出てこない</td>
+              <td>Cursorで保存できているか確認する（<code>⌘ + S</code>）</td>
+            </tr>
+            <tr>
+              <td>Push が失敗する</td>
+              <td>先に Pull origin をしてから、もう一度プッシュする</td>
+            </tr>
+            <tr>
+              <td>コンフリクト（衝突）と出た</td>
+              <td>自分で判断せず、実装リードに連絡する。両方の変更を残すか選ぶ必要がある</td>
+            </tr>
+            <tr>
+              <td>間違ったコミットを送った</td>
+              <td>消さずに、正しい状態にした新しいコミットを送る。履歴は残してよい</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>次に進む合図</h2>
+        <ul class="checklist">
+          <li>作業前に Pull origin をした</li>
+          <li>コミット名を読めば、何をしたか分かる</li>
+          <li>Push origin まで押し、右上に未送信の表示が残っていない</li>
+        </ul>
+
+        <nav class="pager">
+          <a href="cursor.html"><span>前</span>① Cursor</a>
+          <a href="github.html"><span>次</span>③ GitHub</a>
+        </nav>
+      </div>
+    </main>
+  </div>
+  <script src="../js/app.js"></script>
+</body>
+</html>

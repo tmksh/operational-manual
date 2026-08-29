@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>06 保守・改善 | SHINJIDAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/manual.css">
+</head>
+<body>
+  <button class="menu-toggle" id="menu-toggle" aria-expanded="false">メニュー</button>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page">
+        <nav id="steps"></nav>
+
+        <div class="phase-head">
+          <div>
+            <div class="kicker">PHASE 06</div>
+            <h1>保守・改善</h1>
+            <p class="lead">運用開始後の障害対応・改善・機能追加は、保守契約の範囲で継続支援します。壊れたときの対応と、新しい機能は分けて扱います。</p>
+          </div>
+          <figure class="scene">
+            <img src="../img/photo-06-support.jpg" alt="届いた依頼を2つのトレイに分けている写真">
+            <figcaption>依頼は「直す（保守）」と「新しく作る（別見積）」に分ける</figcaption>
+          </figure>
+        </div>
+
+        <div class="meta">
+          <div class="meta-item"><span>担当</span><strong>案件オーナー</strong></div>
+          <div class="meta-item"><span>前提</span><strong>本番で使えている</strong></div>
+          <div class="meta-item"><span>新しい機能</span><strong>別見積</strong></div>
+        </div>
+
+        <h2>保守契約で決めること</h2>
+        <ul>
+          <li>一次窓口（当社 / お客様）と、返事の目安（平日○時間以内）</li>
+          <li>本番が止まったときの連絡先</li>
+          <li>含むもの：約束どおり動いていたものが止まったときの対応、文言・表示の小さな直し</li>
+          <li>含まないもの：新しい帳票、新しい役割、新しいつなぎ先</li>
+          <li>期間と金額</li>
+          <li>契約が終わるときのデータの渡し方</li>
+        </ul>
+        <p class="note">この内容は納品時にお客様と共有します。あとから決めると、無償対応の範囲がずっと広がります。</p>
+
+        <h2>依頼の分け方</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>依頼</th>
+              <th>保守に含む</th>
+              <th>含まない（見積し直す）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>止まった・壊れた</td>
+              <td>約束どおり動いていたものが動かなくなった</td>
+              <td>やり方そのものの変更、新しい帳票</td>
+            </tr>
+            <tr>
+              <td>小さな直し</td>
+              <td>文言、表示、最初から想定していた調整</td>
+              <td>新しい役割、新しいつなぎ先</td>
+            </tr>
+            <tr>
+              <td>もっとこうしたい</td>
+              <td>次の案の種として共有する</td>
+              <td>提案したものをそのまま作る</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>別見積になるものは、変わる点を一文書いて <a href="02-requirements.html">02 要件定義・設計</a> に戻します。1件だけの追加でも、工程は同じ順番で回します。</p>
+
+        <h2>保ち続けること</h2>
+        <ul>
+          <li>環境情報と操作手順を古くしない。担当が変わっても読める状態にする。</li>
+          <li>コード、設計、環境情報、運用手順を揃えておく。他社にも引き継げる状態が前提。</li>
+          <li>改善の相談は溜めずに書き残す。次の案件のたたき台になる。</li>
+        </ul>
+
+        <h2>区切り</h2>
+        <ul class="checklist">
+          <li>保守が始まり、窓口が動いている</li>
+          <li>保守はしない、次は見積する、で合意している</li>
+          <li>契約が終わるときは、データの引き渡しまで実行した</li>
+        </ul>
+
+        <nav class="pager">
+          <a href="05-production.html"><span>前</span>05 移行・本番</a>
+          <a href="../index.html"><span>次</span>全体の流れに戻る</a>
+        </nav>
+      </div>
+    </main>
+  </div>
+  <script src="../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>05 移行・本番 | SHINJIDAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/manual.css">
+</head>
+<body>
+  <button class="menu-toggle" id="menu-toggle" aria-expanded="false">メニュー</button>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page">
+        <nav id="steps"></nav>
+
+        <div class="phase-head">
+          <div>
+            <div class="kicker">PHASE 05</div>
+            <h1>移行・本番</h1>
+            <p class="lead">データ移行、権限設定、操作説明、切替計画を含め、本番運用に載せます。ファイルを渡した日ではなく、現場が自分で仕事を終えられた日が終わりです。</p>
+          </div>
+          <figure class="scene">
+            <img src="../img/photo-05-golive.jpg" alt="2人が本番環境の前で手順書を確認している写真">
+            <figcaption>切替は2人以上で。手順を1つずつ確認しながら進める</figcaption>
+          </figure>
+        </div>
+
+        <div class="meta">
+          <div class="meta-item"><span>担当</span><strong>案件オーナー</strong></div>
+          <div class="meta-item"><span>前提</span><strong>検収の合格</strong></div>
+          <div class="meta-item"><span>終わり</span><strong>本番で仕事が回る</strong></div>
+        </div>
+
+        <h2>4つの準備</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>準備</th>
+              <th>やること</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>データ移行</td>
+              <td>前日までに1回練習し、件数と中身を突き合わせる</td>
+            </tr>
+            <tr>
+              <td>権限設定</td>
+              <td>役割ごとに本番アカウントを作る。検証用の管理者IDは使わない</td>
+            </tr>
+            <tr>
+              <td>操作説明</td>
+              <td>初日に使う3操作だけ先に渡す</td>
+            </tr>
+            <tr>
+              <td>切替計画</td>
+              <td>いつ・誰がやるか、戻すときは誰が判断するかを決める</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>切替の日に確かめること</h2>
+        <div class="split">
+          <ul>
+            <li>主な仕事が、最初から最後まで本番で終わるか</li>
+            <li>役割ごとに、見えてはいけないものが見えていないか</li>
+            <li>（サイト・通販なら）フォーム、支払い、計測、古いURLの行き先</li>
+            <li>初日は立ち会う。連絡先を現場に貼っておく</li>
+          </ul>
+          <figure class="scene">
+            <img src="../img/photo-05-training.jpg" alt="担当者がモニターを指しながら、席に座った2人に操作を説明している写真">
+            <figcaption>操作説明は、使う人が自分でクリックできるまで</figcaption>
+          </figure>
+        </div>
+
+        <h2>引き渡すもの</h2>
+        <p>03で決めた範囲のものを、1枚の一覧にして渡します。</p>
+        <ul>
+          <li>本番のURL / アプリと、管理者IDの渡し方</li>
+          <li>ソースコードの置き場（渡す範囲）とビルド手順</li>
+          <li>要件定義書の最終版</li>
+          <li>操作手順（誰向けか / 初日の3操作）</li>
+          <li>環境情報（お客様名義のものを明記）</li>
+          <li>データ移行の結果（件数と確認方法）</li>
+          <li>今できないこと</li>
+          <li>納品後の窓口と、請求のタイミング</li>
+        </ul>
+
+        <h2>次に進む合図</h2>
+        <ul class="checklist">
+          <li>本番で、検収と同じ仕事をお客様側だけでできる</li>
+          <li>引き渡したものが約束どおりで、今できないことも書いてある</li>
+          <li>保守をする / しない / 次の見積 のどれかが決まっている</li>
+          <li>当社の余分な本番権限と、検証用データを片付けた</li>
+        </ul>
+
+        <nav class="pager">
+          <a href="04-development.html"><span>前</span>04 開発・検証</a>
+          <a href="06-maintenance.html"><span>次</span>06 保守・改善</a>
+        </nav>
+      </div>
+    </main>
+  </div>
+  <script src="../js/app.js"></script>
+</body>
+</html>

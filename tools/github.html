@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GitHubの使い方 | SHINJIDAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/manual.css">
+</head>
+<body>
+  <button class="menu-toggle" id="menu-toggle" aria-expanded="false">メニュー</button>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page">
+        <div class="tool-head">
+          <span class="tool-logo"><img src="../img/logos/github.svg" alt="GitHubのロゴ"></span>
+          <h1>GitHub</h1>
+        </div>
+        <p class="lead">クラウド上のコード保管庫です。バックアップと、チームでの共同作業に使います。</p>
+
+        <div class="meta">
+          <div class="meta-item"><span>置き場所</span><strong>クラウド</strong></div>
+          <div class="meta-item"><span>役割</span><strong>コードの保管・共有・履歴</strong></div>
+          <div class="meta-item"><span>次に渡す先</span><strong>Netlify</strong></div>
+          <div class="meta-item"><span>公式サイト</span><strong><a href="https://github.com/" target="_blank" rel="noopener">github.com</a></strong></div>
+        </div>
+
+        <h2>ひとことで言うと</h2>
+        <p>GitHubは、案件のファイル一式をインターネット上に置いておく場所です。お客様には「コードの保管庫です。バックアップと、複数人で作業するために使っています」と説明します。</p>
+        <p>ここが「正しい最新版」です。自分のPCの中身と食い違ったときは、GitHub側を基準に考えます。</p>
+        <p class="note">GitHubを普段ブラウザで触る機会は多くありません。日々の送受信は <a href="github-desktop.html">GitHub Desktop</a> で完結します。GitHubを開くのは、履歴を見るとき、設定を変えるとき、公開URLを確認するときです。</p>
+
+        <h2>覚えておく言葉</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>言葉</th>
+              <th>意味</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>リポジトリ（repository）</td>
+              <td>この案件のファイル一式。案件ごとに1つ作る<small>「レポジトリ」「リポ」とも呼びます</small></td>
+            </tr>
+            <tr>
+              <td>ブランチ（branch）</td>
+              <td>作業の枝分かれ。<code>main</code> が本番につながる幹<small>小さい案件は <code>main</code> だけで進めます</small></td>
+            </tr>
+            <tr>
+              <td>コミット履歴</td>
+              <td>誰がいつ何を直したかの一覧。ここから過去の状態に戻せる</td>
+            </tr>
+            <tr>
+              <td>プルリクエスト</td>
+              <td>「この変更を幹に入れてよいか」のレビュー依頼<small>複数人で作る案件で使います</small></td>
+            </tr>
+            <tr>
+              <td>Private / Public</td>
+              <td>リポジトリを社外から見られるかどうか。案件は原則 Private</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>よく使う画面</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Code</h3>
+            <p>ファイル一式が並ぶ、いちばん最初の画面です。</p>
+            <ul>
+              <li>今クラウドにある最新の状態が見られる</li>
+              <li>ファイル名をクリックすると中身が読める</li>
+              <li>お客様に共有するのはこの画面ではありません</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Commits（履歴）</h3>
+            <p>コミット名が新しい順に並びます。</p>
+            <ul>
+              <li>いつ何を直したかを追える</li>
+              <li>不具合が出たら、直前のコミットを見る</li>
+              <li><a href="github-desktop.html">コミット名</a>が雑だとここで詰まる</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2>GitHub Desktopにクローンする</h2>
+        <p>別のPCで作業するときや、初めて案件のファイルを自分のPCに取るときは、ブラウザのGitHubから <a href="github-desktop.html">GitHub Desktop</a> にクローンします。クローン＝クラウドのファイル一式を、自分のPCにコピーすることです。</p>
+        <ol>
+          <li>リポジトリの画面で、緑の <strong>Code</strong> ボタンを押す。</li>
+          <li><strong>Open with GitHub Desktop</strong> を選ぶ。</li>
+          <li>「GitHub Desktop を開きますか？」と出たら、<strong>GitHub Desktop を開く</strong> を押す。</li>
+          <li>GitHub Desktopが開いたら、保存先のフォルダを確認してクローンする。</li>
+          <li>クローンが終わったら、<a href="github-desktop.html">Open in Cursor</a> を押して編集を始める。</li>
+        </ol>
+        <figure class="scene is-ui">
+          <img src="../img/step-github-code.png" alt="GitHubのリポジトリ画面。ファイル一覧の右上に緑のCodeボタンがある">
+          <figcaption>緑の Code ボタン。リポジトリのファイル一覧の右上にあります</figcaption>
+        </figure>
+        <figure class="scene is-ui">
+          <img src="../img/step-github-open-desktop.png" alt="CodeメニューのLocalタブ。Open with GitHub Desktopの項目が並んでいる">
+          <figcaption>Local タブの Open with GitHub Desktop を押します</figcaption>
+        </figure>
+        <figure class="scene is-ui">
+          <img src="../img/step-github-open-confirm.png" alt="ブラウザの確認。GitHub Desktopを開きますか？と出て、GitHub Desktopを開くボタンがある">
+          <figcaption>ブラウザが確認を出します。GitHub Desktop を開く を押します</figcaption>
+        </figure>
+        <p class="note">すでに同じフォルダをクローンしている場合は、もう一度やらず、GitHub Desktopでそのリポジトリを開きます。二重に取ると、どちらが最新か分からなくなります。</p>
+
+        <h2>GitHub Pagesで見せる</h2>
+        <p>要件定義や機能一覧は、ファイルを送らずGitHub Pagesで公開します。URLを送るだけで、いつでも最新版が見られます。案件の進め方としては <a href="../phases/02-requirements.html">02 要件定義</a> でも同じ手順を使います。</p>
+        <ol>
+          <li>リポジトリの <strong>Settings</strong> を開き、左メニューの <strong>Pages</strong> を選ぶ。</li>
+          <li><strong>Build and deployment</strong> の <strong>Source</strong> を決める。公開に使うブランチとフォルダ（<code>main</code> の <code>/docs</code> など）があるなら <strong>Deploy from a branch</strong>、無いなら <strong>GitHub Actions</strong> を選ぶ。</li>
+          <li><a href="cursor.html">Cursor</a> でページを作って、コミット・プッシュする。デプロイが終わると反映される。</li>
+          <li>Pages画面の上に出ている <strong>Your site is live at …</strong> のURLが公開先。これをお客様に送る。</li>
+        </ol>
+        <figure class="scene is-ui">
+          <img src="../img/step-pages-settings.png" alt="GitHubのSettings画面。左メニューのPagesを開き、Your site is live at のURLとBuild and deploymentのSourceが表示されている">
+          <figcaption>Settings → Pages。上の「Your site is live at」が公開URL</figcaption>
+        </figure>
+        <figure class="scene is-ui">
+          <img src="../img/step-pages-source.png" alt="SourceのドロップダウンでGitHub ActionsとDeploy from a branchが選べる状態">
+          <figcaption>Sourceの選び方。ブランチがあるなら Deploy from a branch、無いなら GitHub Actions</figcaption>
+        </figure>
+        <p class="note">リポジトリが Private でも、GitHub Pagesで公開したページは誰でも見られます。お客様の実名データ、ID、パスワード、社内金額は載せません。見せたくないものは、この工程の紙（社内用）に置いておきます。</p>
+
+        <h2>やってはいけないこと</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>これをすると</th>
+              <th>こうなる</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>パスワードやAPIキーを含むファイルを送る</td>
+              <td>後で消しても履歴から取り出せる。鍵の作り直しが必要になる</td>
+            </tr>
+            <tr>
+              <td>リポジトリを Public にする</td>
+              <td>お客様のコードが社外から読める状態になる</td>
+            </tr>
+            <tr>
+              <td>ブラウザ上で直接ファイルを編集する</td>
+              <td>自分のPC側と食い違い、次のプッシュで衝突する</td>
+            </tr>
+            <tr>
+              <td>案件が終わったリポジトリを削除する</td>
+              <td>保守で戻すときに履歴がない。残したまま扱う</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>次に進む合図</h2>
+        <ul class="checklist">
+          <li>プッシュした内容がGitHub上でも見えている</li>
+          <li>リポジトリが Private になっている</li>
+          <li>鍵やパスワードが含まれていない</li>
+        </ul>
+
+        <nav class="pager">
+          <a href="github-desktop.html"><span>前</span>② GitHub Desktop</a>
+          <a href="supabase.html"><span>次</span>④ Supabase</a>
+        </nav>
+      </div>
+    </main>
+  </div>
+  <script src="../js/app.js"></script>
+</body>
+</html>

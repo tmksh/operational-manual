@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>02 要件定義・設計 | SHINJIDAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/manual.css">
+</head>
+<body>
+  <button class="menu-toggle" id="menu-toggle" aria-expanded="false">メニュー</button>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page">
+        <nav id="steps"></nav>
+
+        <div class="phase-head">
+          <div>
+            <div class="kicker">PHASE 02</div>
+            <h1>要件定義・設計</h1>
+            <p class="lead">画面・データ・権限・連携・非機能（セキュリティ含む）を文書化します。社内稟議向けの整理もこの段階で行います。</p>
+          </div>
+          <figure class="scene">
+            <img src="../img/photo-04-kickoff.jpg" alt="会議室で全員が同じ画面を見ながら打ち合わせをしている写真">
+            <figcaption>キックオフMTGから始めます。ここが要件定義の入口</figcaption>
+          </figure>
+        </div>
+
+        <div class="meta">
+          <div class="meta-item"><span>担当</span><strong>要件定義担当</strong></div>
+          <div class="meta-item"><span>入口</span><strong>キックオフMTG</strong></div>
+          <div class="meta-item"><span>終わり</span><strong>お客様と合意</strong></div>
+        </div>
+
+        <h2>入口：キックオフMTG</h2>
+        <p>作り始める前に1回、60〜90分。お金を決める人、現場の人、案件オーナー、実装リード、お客様窓口が集まります。窓口を両側1名に決め、決まったことはその日のうちにメールで送ります。</p>
+        <div class="split">
+          <div>
+            <p>ここで確定させるのは、あとで動くと全部やり直しになるものだけです。</p>
+            <ul>
+              <li>システムの目的とゴール</li>
+              <li>対象ユーザーの種別</li>
+              <li>管理画面の数、権限の数</li>
+              <li>機能のカテゴリ</li>
+              <li>外部連携の有無</li>
+            </ul>
+          </div>
+          <figure class="scene">
+            <img src="../img/photo-02-requirements.jpg" alt="ホワイトボードを左右に分け、付箋を貼り分けている写真">
+            <figcaption>やること と やらないこと を、同じ壁に並べて見せる</figcaption>
+          </figure>
+        </div>
+        <p class="note">契約前のキックオフは「作らない打ち合わせ」です。ここで目的と数（画面・権限）が決まると、03の見積が積めます。</p>
+
+        <h2>文書化する5つ</h2>
+        <p>01で聞いた「業務」を、この5つに分けて書き出します。分厚くしません。ふつうの案件なら5ページ前後で足ります。</p>
+        <div class="grid-2">
+          <div class="card">
+            <h3>画面</h3>
+            <ul>
+              <li>画面と帳票を1行ずつ並べる</li>
+              <li>誰が、どの順番で使うか</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>データ</h3>
+            <ul>
+              <li>何を持つか（項目の一覧）</li>
+              <li>どこから移すか、移さないものは何か</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>権限</h3>
+            <ul>
+              <li>役割ごとに、見える / 直せる範囲</li>
+              <li>見えてはいけないものを先に決める</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>連携</h3>
+            <ul>
+              <li>他システムとつなぐか</li>
+              <li>未確認なら「いつ / 誰に聞く」を書く</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>非機能（セキュリティ含む）</h3>
+            <ul>
+              <li>同時に使う人数、データ量</li>
+              <li>ログイン方法、個人情報の扱い、バックアップ</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>やらないこと</h3>
+            <ul>
+              <li>やることと同じ細かさで書く</li>
+              <li>「将来は在庫も」は第2段階に送る</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2>機能一覧の書き方</h2>
+        <p>文書化した5つを、お客様が読める形にまとめたものが機能一覧です。過去の案件で実際に使ったものを、そのまま型として使います。</p>
+        <div class="grid-2">
+          <div class="card">
+            <h3><a href="https://tmksh.github.io/eiwa-platform/FUNCTION_LIST.html" target="_blank" rel="noopener">車両管理 機能一覧（画面別ガイド）</a></h3>
+            <p>画面ごとに書く型。すでに動いているものを説明するときに使います。</p>
+            <ul>
+              <li>最初に画面マップ（サイドバーの構成）を1枚置く</li>
+              <li>画面ごとにURL・ボタンの意味・押したあとどうなるかを書く</li>
+              <li>画面をまたいでつながる部分を別に書く</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3><a href="https://tmksh.github.io/Sign-AI/index.html" target="_blank" rel="noopener">Sign-AI 機能一覧</a></h3>
+            <p>機能ごとに書く型。提案や稟議で、範囲と段階を見せるときに使います。</p>
+            <ul>
+              <li>フェーズ1 / フェーズ2 に分け、件数と時期を頭に出す</li>
+              <li>機能ごとに、中身の箇条書き＋処理の流れ（STEP）</li>
+              <li>各機能に「→ 何が良くなるか」を1行つける</li>
+            </ul>
+          </div>
+        </div>
+        <p class="note">どちらも共通しているのは、機能名だけを並べていないことです。誰が使うか、押したらどうなるか、どの段階でやるかまで書きます。ここが埋まっていれば、そのまま見積の内訳（03）になります。</p>
+
+        <h2>機能一覧はGitHub Pagesで公開する</h2>
+        <p>要件定義と機能一覧は、ファイルを送らずWebページにします。URLを送るだけで、いつでも最新版が見られます。</p>
+        <ol>
+          <li>リポジトリの <strong>Settings</strong> を開き、左メニューの <strong>Pages</strong> を選ぶ。</li>
+          <li><strong>Build and deployment</strong> の <strong>Source</strong> を決める。公開に使うブランチとフォルダ（<code>main</code> の <code>/docs</code> など）があるなら <strong>Deploy from a branch</strong>、無いなら <strong>GitHub Actions</strong> を選ぶ。</li>
+          <li>Cursorでページを作って、コミット・プッシュする。デプロイが終わると反映される。</li>
+          <li>Pages画面の上に出ている <strong>Your site is live at …</strong> のURLが公開先。これをお客様に送る。</li>
+        </ol>
+        <figure class="scene is-ui">
+          <img src="../img/step-pages-settings.png" alt="GitHubのSettings画面。左メニューのPagesを開き、Your site is live at のURLとBuild and deploymentのSourceが表示されている">
+          <figcaption>Settings → Pages。上の「Your site is live at」が公開URL</figcaption>
+        </figure>
+        <figure class="scene is-ui">
+          <img src="../img/step-pages-source.png" alt="SourceのドロップダウンでGitHub ActionsとDeploy from a branchが選べる状態">
+          <figcaption>Sourceの選び方。ブランチがあるなら Deploy from a branch、無いなら GitHub Actions</figcaption>
+        </figure>
+        <p class="note">リポジトリが private でも、公開したページは誰でも見られます。お客様の実名データ、ID、パスワード、社内金額は書きません。見せたくないものは、この工程の紙（社内用）に置いておきます。</p>
+
+        <h2>完了定義を先に書く</h2>
+        <p>「これができたら終わり」を、作る前に決めます。読んだ人が合格・不合格を判断できる書き方にします。</p>
+        <div class="split">
+          <table>
+            <thead>
+              <tr>
+                <th>これだと止まる</th>
+                <th>こう書く</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>使いやすい画面にする</td>
+                <td>配車の人が、翌日の割当を登録・変更・出力できる</td>
+              </tr>
+              <tr>
+                <td>請求業務を効率化する</td>
+                <td>月末の請求書100件を、担当1人が半日で出せる</td>
+              </tr>
+              <tr>
+                <td>データを移行する</td>
+                <td>既存の顧客3,000件を移し、件数と主要項目が一致している</td>
+              </tr>
+            </tbody>
+          </table>
+          <figure class="scene">
+            <img src="../img/photo-02-doc.jpg" alt="机の上で書類の束をめくり、白紙とペンを並べている写真">
+            <figcaption>空欄のままにしません。分からないところは「未確認 / いつまでに / 誰に聞く」と書きます</figcaption>
+          </figure>
+        </div>
+
+        <h2>稟議で使えるようにする</h2>
+        <p>お客様が社内で通すための材料も、この工程で揃えます。</p>
+        <ul>
+          <li>課題と効果、段階計画（第1段階 / 第2段階）</li>
+          <li>スコープ外と前提条件</li>
+          <li>お客様側の作業（名簿、ID、確認の期限）。書いていないと期限は当社だけが負うことになります。</li>
+          <li>検収条件（上の完了定義をそのまま使う）</li>
+        </ul>
+
+        <h2>次に進む合図</h2>
+        <ul class="checklist">
+          <li>やる / やらない が、お客様に共有されている</li>
+          <li>完了定義を読めば、別の人でも合格・不合格を判断できる</li>
+          <li>お客様側の作業に、担当と期限が入っている</li>
+        </ul>
+        <p class="note">契約の前に、本番として使うものは作り始めません。確認のための試作はしてよいです。</p>
+
+        <nav class="pager">
+          <a href="01-hearing.html"><span>前</span>01 ヒアリング・課題整理</a>
+          <a href="03-contract.html"><span>次</span>03 見積・契約</a>
+        </nav>
+      </div>
+    </main>
+  </div>
+  <script src="../js/app.js"></script>
+</body>
+</html>
