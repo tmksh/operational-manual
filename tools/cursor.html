@@ -70,18 +70,18 @@
             </tr>
           </tbody>
         </table>
-        <figure class="scene is-ui">
-          <img src="../img/step-cursor-layout.png" alt="Cursorの全体。左にフォルダ一覧、中央に画面、右にAIチャット、下にターミナルがある">
-          <figcaption>左がファイル、中央が作業、右がチャット、下がターミナルです</figcaption>
-        </figure>
-        <figure class="scene is-ui">
-          <img src="../img/step-cursor-sidebar.png" alt="左のフォルダ一覧。案件のフォルダとファイルが並んでいる">
-          <figcaption>左のフォルダ一覧。<code>⌘ + B</code> で出したり隠したりします</figcaption>
-        </figure>
-        <figure class="scene is-ui">
-          <img src="../img/step-cursor-terminal.png" alt="下のターミナル。Terminalタブが選ばれ、コマンド入力待ちになっている">
-          <figcaption>下のターミナル。消えたときは <code>⌘ + J</code> でパネルを出します</figcaption>
-        </figure>
+        <div class="ide-board">
+          <figure class="scene is-ui ide-board-side">
+            <img src="../img/step-cursor-sidebar.png" alt="左のフォルダ一覧。案件のフォルダとファイルが並んでいる">
+          </figure>
+          <figure class="scene is-ui ide-board-main">
+            <img src="../img/step-cursor-layout.png" alt="Cursorの全体。左にフォルダ一覧、中央に画面、右にAIチャット、下にターミナルがある">
+          </figure>
+          <figure class="scene is-ui ide-board-bar">
+            <img src="../img/step-cursor-terminal.png" alt="下のターミナル。Terminalタブが選ばれ、コマンド入力待ちになっている">
+          </figure>
+        </div>
+        <p class="ide-board-notes">左がフォルダ一覧（<code>⌘ + B</code>）。中央が作業、右がチャット。下がターミナル（<code>⌘ + J</code>）。</p>
 
         <h3>サイトを自分のPCで見る</h3>
         <p>案件のフォルダを開いたら、下のターミナルで起動コマンドを打ちます。よく使うのは次です。</p>
@@ -139,7 +139,7 @@
             </ul>
           </div>
         </div>
-        <figure class="scene is-ui">
+        <figure class="scene is-ui is-portrait">
           <img src="../img/step-cursor-chat.png" alt="Cursorの右チャット。日本語の依頼と、複数ファイルの変更案、Reviewボタンが見える">
           <figcaption>右のチャット。変更が出たら Review を押して、中身を見てから採用します</figcaption>
         </figure>
