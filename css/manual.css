@@ -82,17 +82,59 @@ a:hover { color: var(--navy-bright); }
   color: var(--muted);
 }
 
-.nav-label {
-  margin: 18px 8px 8px;
-  font-size: 12px;
-  letter-spacing: 0.06em;
-  color: var(--muted);
+.nav-group {
+  margin-top: 4px;
+}
+
+.nav-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.nav-toggle:hover {
+  background: rgba(0, 47, 79, 0.08);
+  color: var(--navy);
+}
+
+.nav-caret {
+  flex: 0 0 6px;
+  width: 6px;
+  height: 6px;
+  margin-left: 8px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 0.15s ease;
+}
+
+.nav-group.is-open .nav-caret {
+  transform: rotate(45deg);
+}
+
+.nav-group-body {
+  display: none;
+}
+
+.nav-group.is-open .nav-group-body {
+  display: block;
 }
 
 .nav a {
   display: flex;
-  align-items: baseline;
-  gap: 10px;
+  align-items: center;
+  gap: 8px;
   color: var(--text);
   text-decoration: none;
   padding: 8px 10px;
@@ -104,6 +146,17 @@ a:hover { color: var(--navy-bright); }
 .nav a.is-current {
   background: rgba(0, 47, 79, 0.08);
   color: var(--navy);
+}
+
+.nav-icon {
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.nav a svg.nav-icon {
+  display: block;
 }
 
 .nav .num {
