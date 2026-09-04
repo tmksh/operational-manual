@@ -7,7 +7,7 @@
 `index.html` を開くか、次でローカル表示します。
 
 ```bash
-python3 -m http.server 8080
+npm run dev
 ```
 
 http://localhost:8080
