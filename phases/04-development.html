@@ -14,167 +14,404 @@
   <div class="layout">
     <aside class="sidebar" id="sidebar"></aside>
     <main class="main">
-      <div class="page">
+      <div class="page is-playbook">
         <nav id="steps"></nav>
 
-        <div class="phase-head">
+        <div class="phase-head is-text">
           <div>
             <div class="kicker">PHASE 04</div>
             <h1>開発・検証</h1>
-            <p class="lead">営業のリポジトリを引き継ぎ、初稿 → 修正 → 検収で確定させる。途中の「これも」は、その場で受けない。</p>
+            <p class="lead">営業のリポジトリを引き継ぎ、初稿 → 修正 → 検収で確定させる。途中の追加要望は、その場で受けない。</p>
           </div>
-          <figure class="scene">
-            <img src="../img/photo-04-build.jpg" alt="2人が並んで、片方はタブレットで画面のレイアウトを描き、もう片方はノートパソコンで実装している写真">
-            <figcaption>デザインと開発は同時に進めます</figcaption>
+        </div>
+
+        <p class="loop-label">今の場面を押す</p>
+        <nav class="loop" aria-label="この工程の回し方">
+          <a href="#start">
+            <span class="loop-num">1</span>
+            <strong>引き継ぐ</strong>
+            <small>クローンして Cursor に聞く</small>
+          </a>
+          <a href="#draft">
+            <span class="loop-num">2</span>
+            <strong>初稿を出す</strong>
+            <small>見た目から先に作る</small>
+          </a>
+          <a href="#cycle">
+            <span class="loop-num">3</span>
+            <strong>定例と修正</strong>
+            <small>LINEは先に確認する</small>
+          </a>
+          <a href="#extra">
+            <span class="loop-num">4</span>
+            <strong>追加要望</strong>
+            <small>社内に持ち帰って返す</small>
+          </a>
+          <a href="#accept">
+            <span class="loop-num">5</span>
+            <strong>検収</strong>
+            <small>社内確認のあと、2週間〜1か月</small>
+          </a>
+        </nav>
+
+        <div class="toolstrip">
+          <span>この工程で使う</span>
+          <a href="../tools/cursor.html"><img src="../img/logos/cursor.svg" alt="">Cursor</a>
+          <a href="../tools/github-desktop.html"><img src="../img/logos/github-desktop.svg" alt="">GitHub Desktop</a>
+          <a href="../tools/github.html"><img src="../img/logos/github.svg" alt="">GitHub</a>
+          <a href="../tools/supabase.html"><img src="../img/logos/supabase.svg" alt="">Supabase</a>
+          <a href="../tools/netlify.html"><img src="../img/logos/netlify.svg" alt="">Netlify</a>
+          <a href="../tools/index.html">全体の流れ</a>
+        </div>
+
+        <section class="block" id="start">
+          <div class="block-head">
+            <span class="block-num">1</span>
+            <h2>始め方</h2>
+          </div>
+          <p>営業が作った GitHub を使う。空のリポジトリは作らない。中に、営業段階の要件定義・機能一覧・ヒアリングのフォルダがある。</p>
+          <ol>
+            <li>緑の <strong>Code</strong> → <strong>Open with GitHub Desktop</strong> でクローンする。操作は <a href="../tools/github.html">GitHub</a>。</li>
+            <li>終わったら <strong>Open in Cursor</strong>。操作は <a href="../tools/github-desktop.html">GitHub Desktop</a>。</li>
+            <li>Cursorのチャットで、中の要件定義・機能一覧・ヒアリングを読ませて聞く。分からない範囲は想像で埋めず、営業へ返す。</li>
+            <li>内容が合っていたら、下の2行をCursorのチャットに送る。</li>
+          </ol>
+          <figure class="scene is-ui">
+            <img src="../img/step-github-sales-repo.png" alt="GitHubのリポジトリ画面。緑のCodeを押すと、Open with GitHub Desktopが出る。docsやmeeting_logなどのフォルダが並んでいる">
+            <figcaption>Code → Open with GitHub Desktop。docs や meeting_log が、営業段階のメモ。</figcaption>
           </figure>
-        </div>
+          <div class="prompt is-cursor">
+            <em><img src="../img/logos/cursor.svg" alt="">最初に、Cursorのチャットへ</em>
+            <p>このリポジトリの要件定義・機能一覧・ヒアリングを読んで、何を作るか要約して。</p>
+          </div>
+          <div class="prompt is-cursor">
+            <em><img src="../img/logos/cursor.svg" alt="">OKなら、続けてチャットへ</em>
+            <p>モダンなUI/UXデザインで実装してください。<br>Next.jsで作成してください。</p>
+          </div>
+          <p class="hint">Pinterestなどで参考デザインを探して、画像を一緒に添付するとなお良い。</p>
+          <p class="hint">お客様にとって開発は投資です。2〜3か月遅れると、回収の開始も遅れます。</p>
+        </section>
 
-        <div class="meta">
-          <div class="meta-item"><span>担当</span><strong>実装リード</strong></div>
-          <div class="meta-item"><span>入口</span><strong>初稿提出</strong></div>
-          <div class="meta-item"><span>出口</span><strong>動作テスト・検収</strong></div>
-          <div class="meta-item"><span>定例</span><strong>2週に1回</strong></div>
-        </div>
-
-        <h2>始め方</h2>
-        <p>営業が作った GitHub を引き継ぐ。空のリポジトリは作らない。<a href="../tools/github.html">クローン</a>して <a href="../tools/cursor.html">Cursor</a> で開き、機能一覧・前提・やらないことを読んでから書く。分からない範囲は想像で埋めず、営業へ返す。</p>
-        <p>お客様にとって開発は投資です。2〜3か月遅れると、回収の開始も遅れます。</p>
-
-        <h2>初稿の出し方</h2>
-        <p>デザインが全部決まるのを待たない。中身から先に作り、初稿 → 修正 → 検収で確定させる。</p>
-        <table>
-          <thead>
-            <tr>
-              <th></th>
-              <th>いつ使う</th>
-              <th>注意</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>モックアップ</td>
-              <td>画面が多い、使い方を想像しにくい</td>
-              <td>見た目だけ。先に「保存はできません」と言う</td>
-            </tr>
-            <tr>
-              <td>機能一覧だけ</td>
-              <td>既存画面の直し、権限やデータが主</td>
-              <td><a href="02-requirements.html">02の一覧</a>を一緒に読む。割れた画面だけモックにする</td>
-            </tr>
-          </tbody>
-        </table>
-        <p>言葉がずれるので、社内ではこう使う。ワイヤーフレーム＝灰色の骨格。プロトタイプ＝画面遷移がある。モックアップ＝見た目に近い試作（近年は基本こちら）。</p>
-
-        <h2>定例（2週に1回）</h2>
-        <p>見せる → 決める → 次までの宿題、で終わる。記録は、やった人がその日のうちに Markdown でリポジトリへ置く。ドライブだけに置かない。</p>
-        <table>
-          <thead>
-            <tr>
-              <th>段階</th>
-              <th>ここで確定させる</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>初稿</td>
-              <td>デザイン、レイアウト、リンク、色、フォント、動きの有無</td>
-            </tr>
-            <tr>
-              <td>修正</td>
-              <td>不具合、崩れ、文言、画像、動きの大枠</td>
-            </tr>
-            <tr>
-              <td>検収</td>
-              <td>残りの不具合と動き。お客様が操作して判定する</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h2>「これも入れて」が来たとき</h2>
-        <p>その場で「やります」「タダでできます」と言わない。Cursor ですぐ作れることと、契約の範囲は別です。</p>
-        <table>
-          <thead>
-            <tr>
-              <th>今回の範囲</th>
-              <th>追加の費用</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>誤字、色、並び、表示崩れ、動かない不具合</td>
-              <td>新しい画面、権限、保存、帳票、外部連携、約束に無い業務</td>
-            </tr>
-          </tbody>
-        </table>
-        <p>返すのはこれだけ。「持ち帰って、やる / 次に送る / 別途見積 で戻します。」「前回言ったはず」には、要件定義の版を指す。「A・B・Cまで」なら D は入っていない。入れるなら見積と、いつやるかも決める。</p>
-        <p class="note">迷ったらその場で決めず、営業か案件オーナーへ。やり取りの実画面は3パターン、あとで足す。</p>
-
-        <h2>締め切り</h2>
-        <div class="split">
-          <ul>
-            <li>リリースの<strong>1か月半前</strong>まで（小さい案件は2週間前）。以降は次へ送る。</li>
-            <li>返事の前に、範囲・日数・費用を出す。</li>
-            <li>今回やる / 次に送る / やらない、を決めた日を残す。</li>
-          </ul>
-          <figure class="scene">
-            <img src="../img/photo-04-change.jpg" alt="付箋を3つのかたまりに分けて貼り替えている写真">
-            <figcaption>3つに分けてから返事をする</figcaption>
+        <section class="block" id="draft">
+          <div class="block-head">
+            <span class="block-num">2</span>
+            <h2>初稿の出し方</h2>
+          </div>
+          <p>デザインが全部決まるのを待たない。中身から先に作り、初稿 → 修正 → 検収で確定させる。</p>
+          <div class="pair">
+            <div class="pair-card">
+              <span class="when">画面が多いとき</span>
+              <h3>モックアップ</h3>
+              <p>見た目だけ。先に「保存はできません」と言う。</p>
+            </div>
+            <div class="pair-card">
+              <span class="when">既存画面の直し・権限が主</span>
+              <h3>機能一覧だけ</h3>
+              <p><a href="02-requirements.html">02の一覧</a>を一緒に読む。割れた画面だけモックにする。</p>
+            </div>
+          </div>
+          <p class="hint">社内の呼び方：ワイヤーフレーム＝灰色の骨格。プロトタイプ＝画面遷移がある。モックアップ＝見た目に近い試作（基本はこちら）。</p>
+          <h3>先方への連絡</h3>
+          <p>出し終わったら送る。入れるのは対応内容、テスト環境のURL、確認してほしい点。見た目だけなら「保存はできません」も書く。</p>
+          <figure class="scene is-ui">
+            <img src="../img/step-line-first-draft.png" alt="初稿完了を先方に送ったLINE。対応内容、テスト環境のURL、デザインの方向性の確認を書いている">
+            <figcaption>初稿を出したときの連絡例。対応内容、URL、確認してほしい点。</figcaption>
           </figure>
-        </div>
-        <p>キックオフで先に伝える。あとから言うと「間に合わないのは当社の都合」になる。</p>
+          <div class="prompt is-letter">
+            <em>文面の型</em>
+            <p>お世話になっております。<br>デザインの初稿出しが完了しましたので、ご報告いたします。<br><br>【対応内容】<br>・今回入れたもの<br><br>【テスト環境URL】<br>（NetlifyのURL）<br><br>デザインの方向性について、ご確認ください。<br>修正やご要望がございましたら、お知らせください。</p>
+          </div>
+          <p class="hint">送ったら、<a href="#cycle">修正シート</a>を用意する。続けて、先方からもらうものを聞く。</p>
+          <h3 id="materials">先方からもらうもの</h3>
+          <p>初稿を出したあとで聞く。先方が出さないと進められない箇所を、まとめて一度に伝える。これがないとリリースできない。</p>
+          <div class="grid-2 is-flush">
+            <div>
+              <div class="prompt">
+                <em>初稿のあとで聞く</em>
+                <p>今の段階で必要なものをまとめました。遅れると、リリースに影響します。</p>
+              </div>
+              <figure class="scene is-ui">
+                <img src="../img/step-line-materials.png" alt="先方からもらう素材・決定・法務・メールアドレスなどを、項目ごとにまとめて送ったLINE">
+                <figcaption>必要なものを一度に書く。遅れるとリリースに影響する、も添える。</figcaption>
+              </figure>
+            </div>
+            <div>
+              <div class="prompt">
+                <em>返信や提出が遅れたとき</em>
+                <p>必要なものにつきまして、いつ頃いただけそうでしょうか？</p>
+              </div>
+              <figure class="scene is-ui">
+                <img src="../img/step-line-nudge.png" alt="必要なものをいつ頃もらえるか、先方に催促しているLINE">
+                <figcaption>返信や提出が遅れたら、いつ頃か聞く。</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
 
-        <h2>基盤の話が出たとき</h2>
-        <p>「AWSで」でもすぐ従わない。会員・ログイン・表データなら <a href="../tools/supabase.html">Supabase</a> の方が速いことが多い。希望は聞いたうえで、速さ・運用・費用を比べて提案する。</p>
-
-        <h2>使うツール</h2>
-        <p>操作は各ページ。<a href="../tools/index.html">全体の流れ</a>だけ先に見る。</p>
-        <div class="toolgrid">
-          <a class="tool-card" href="../tools/cursor.html">
-            <span class="tool-logo"><img src="../img/logos/cursor.svg" alt=""></span>
-            <strong>① Cursor</strong>
-            <span class="desc">ローカル / コードを書く・編集する</span>
-          </a>
-          <a class="tool-card" href="../tools/github-desktop.html">
-            <span class="tool-logo"><img src="../img/logos/github-desktop.svg" alt=""></span>
-            <strong>② GitHub Desktop</strong>
-            <span class="desc">ローカル / 変更を保存してクラウドへ送る</span>
-          </a>
-          <a class="tool-card" href="../tools/github.html">
-            <span class="tool-logo"><img src="../img/logos/github.svg" alt=""></span>
-            <strong>③ GitHub</strong>
-            <span class="desc">クラウド / コードを保管・共有する</span>
-          </a>
-          <a class="tool-card" href="../tools/supabase.html">
-            <span class="tool-logo"><img src="../img/logos/supabase.svg" alt=""></span>
-            <strong>④ Supabase</strong>
-            <span class="desc">クラウド / 会員情報や投稿データを持つ</span>
-          </a>
-          <a class="tool-card" href="../tools/netlify.html">
-            <span class="tool-logo"><img src="../img/logos/netlify.svg" alt=""></span>
-            <strong>⑤ Netlify</strong>
-            <span class="desc">クラウド / Webサイトを公開する</span>
-          </a>
-        </div>
-
-        <h2>検収</h2>
-        <div class="split">
-          <ul>
-            <li>完了定義を、お客様が操作して確認する。</li>
-            <li>合格 / 残件つき合格 / 不合格。仕事が止まるものだけ不合格。</li>
-            <li>約束に無い「もっとこうしたい」は見積に回し、判定に混ぜない。</li>
-          </ul>
-          <figure class="scene">
-            <img src="../img/photo-04-acceptance.jpg" alt="お客様がパソコンを操作し、当社の担当は横で見ながら記録している写真">
-            <figcaption>操作するのはお客様</figcaption>
+        <section class="block" id="cycle">
+          <div class="block-head">
+            <span class="block-num">3</span>
+            <h2>定例と修正の回し方</h2>
+          </div>
+          <h3>定例を組む</h3>
+          <p>初稿を出したあと、まず打ち合わせを入れる。定例の間隔は、その場で決める。決まってから、見せる → 決める → 次までの宿題、で回す。終わったら、文字起こしを議事録にして Google ドライブへ置く。置かないと、あとから「言った／言わない」になる。</p>
+          <h3>LINEが来たとき</h3>
+          <p>「直して」「エラーが出る」は、LINEで来ることが多い。先に一時返信してから着手する。当日中に返す。</p>
+          <div class="prompt">
+            <em>先に返す</em>
+            <p>ご連絡ありがとうございます。確認いたします。</p>
+          </div>
+          <div class="prompt">
+            <em>直したら返す</em>
+            <p>調整しましたので、ご確認ください。</p>
+          </div>
+          <div class="grid-2 is-flush">
+            <figure class="scene is-ui">
+              <img src="../img/step-line-feedback.png" alt="先方がLINEで不具合と修正を送っている画面。スクショと、NG表記や車両ナンバーの直しが並んでいる">
+              <figcaption>先方からの修正。スクショと「直して」が、そのまま来る。</figcaption>
+            </figure>
+            <figure class="scene is-ui">
+              <img src="../img/step-line-ack.png" alt="こちらが当日に確認いたしますと返し、直したあと再度ご確認と送っているLINE">
+              <figcaption>当日に「確認します」。直したら「ご確認ください」。</figcaption>
+            </figure>
+          </div>
+          <h3>シートに残す</h3>
+          <p>LINEのままにしない。来た内容を、こちらでスプレッドシートに移す。先方に行を書いてもらい、直してステータスを変え、もう一度確認してもらう。漏れを防ぐ。口頭だけにしない。</p>
+          <figure class="scene is-ui">
+            <img src="../img/step-sheet-corrections.png" alt="修正用スプレッドシート。画面カテゴリ、セクション、ステータス、区分、タスク内容、画像URL、詳細が並んでいる">
+            <figcaption>修正シートの例。LINEの指摘を、1行ずつ移す。</figcaption>
           </figure>
-        </div>
+          <div class="pipe" aria-label="シートのステータス">
+            <div class="pipe-step">
+              <strong>先方記入</strong>
+              <span>先方が行を書く</span>
+            </div>
+            <div class="pipe-step">
+              <strong>こちら修正中</strong>
+              <span>直してステータスを変える</span>
+            </div>
+            <div class="pipe-step">
+              <strong>先方確認</strong>
+              <span>もう一度見てもらう</span>
+            </div>
+            <div class="pipe-step is-done">
+              <strong>完了</strong>
+              <span>行を潰す</span>
+            </div>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>列</th>
+                <th>何を書くか</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>画面カテゴリ</td>
+                <td>どの画面か</td>
+              </tr>
+              <tr>
+                <td>セクション／タブ</td>
+                <td>どのタブか</td>
+              </tr>
+              <tr>
+                <td>ステータス</td>
+                <td>上の4つ。飛ばさない</td>
+              </tr>
+              <tr>
+                <td>区分</td>
+                <td>修正 / 追加 / 削除 / 検討</td>
+              </tr>
+              <tr>
+                <td>タスク内容</td>
+                <td>何をどうするか。短く</td>
+              </tr>
+              <tr>
+                <td>該当箇所画像URL</td>
+                <td>スクショがあれば付ける</td>
+              </tr>
+              <tr>
+                <td>詳細・補足</td>
+                <td>先方の指摘。消さない</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>区分が「追加」なら、シートに残したうえで、すぐ作らない。今回の範囲か、見積かを先に見る。</p>
+          <div class="stage">
+            <div class="stage-card">
+              <span class="when">初稿</span>
+              <h3>見た目を確定</h3>
+              <p>デザイン、レイアウト、リンク、色、フォント、動きの有無</p>
+            </div>
+            <div class="stage-card">
+              <span class="when">修正</span>
+              <h3>シートの行を潰す</h3>
+              <p>不具合、崩れ、文言、画像</p>
+            </div>
+            <div class="stage-card">
+              <span class="when">検収</span>
+              <h3>お客様が確認</h3>
+              <p>2週間〜1か月。社内で見たところを出してから</p>
+            </div>
+          </div>
+        </section>
 
-        <h2>次に進む合図</h2>
-        <ul class="checklist">
-          <li>定例の記録が、リポジトリに残っている</li>
-          <li>追加要望が、今回 / 次 / 別途見積 に分かれている</li>
-          <li>合格、または本番を止めない残件つき合格</li>
-        </ul>
+        <section class="block" id="extra">
+          <div class="block-head">
+            <span class="block-num">4</span>
+            <h2>追加要望が来たとき</h2>
+          </div>
+          <p>開発が始まってから、追加機能や要望が来ることは多い。その場で「やります」「タダでできます」と言わない。一旦社内に持ち帰ってから連絡する。Cursor ですぐ作れることと、契約の範囲は別です。</p>
+          <div class="versus">
+            <div class="lane ok">
+              <h3>今回の範囲</h3>
+              <ul>
+                <li>誤字、色、並び</li>
+                <li>表示崩れ</li>
+                <li>動かない不具合</li>
+              </ul>
+            </div>
+            <div class="lane pay">
+              <h3>追加の費用</h3>
+              <ul>
+                <li>新しい画面、権限、保存</li>
+                <li>帳票、外部連携</li>
+                <li>約束に無い業務</li>
+              </ul>
+            </div>
+          </div>
+          <div class="say">
+            <em>その場で返す言葉</em>
+            <p>改めて社内精査してご連絡します。</p>
+          </div>
+          <p>持ち帰ったあと、やる / 次に送る / 別途見積 で戻す。「前回言ったはず」には、要件定義の版を指す。「A・B・Cまで」なら D は入っていない。入れるなら見積と、いつやるかも決める。</p>
+          <div class="grid-2 is-flush">
+            <figure class="scene is-ui">
+              <img src="../img/step-line-extra-request.png" alt="開発中に、Google連携や横断ダッシュボードなどの追加要望がLINEで来ている">
+              <figcaption>追加要望の例。外部連携や新しい画面は、今回の範囲ではない。</figcaption>
+            </figure>
+            <figure class="scene is-ui">
+              <img src="../img/step-line-extra-hold.png" alt="改めて社内精査してご連絡します、と返しているLINE">
+              <figcaption>その場では受けない。社内に持ち帰ってから返す。</figcaption>
+            </figure>
+          </div>
+          <div class="split">
+            <div>
+              <h3>締め切り</h3>
+              <ul>
+                <li>リリースの<strong>1か月半前</strong>まで（小さい案件は2週間前）。以降は次へ送る。</li>
+                <li>返事の前に、範囲・日数・費用を出す。</li>
+                <li>今回やる / 次に送る / やらない、を決めた日を残す。</li>
+              </ul>
+              <p class="hint">キックオフで先に伝える。あとから言うと「間に合わないのは当社の都合」になる。</p>
+            </div>
+            <figure class="scene">
+              <img src="../img/photo-04-change.jpg" alt="付箋を3つのかたまりに分けて貼り替えている写真">
+              <figcaption>3つに分けてから返事をする</figcaption>
+            </figure>
+          </div>
+          <h3>基盤の話が出たとき</h3>
+          <p>「AWSで」「Firebaseで」と言われても、すぐ「やります」と言わない。希望は聞く。そのうえで、速さ・運用しやすさ・費用を比べて提案する。</p>
+          <div class="prompt">
+            <em>なぜうちはSupabaseを使うのか</em>
+            <p>うちの仕事は、一覧・帳票・会員が多い。データが表で見えて、ログインも同じ場所。毎回同じ型で、Cursorで作れる。指定がなければ、これが一番速い。</p>
+          </div>
+          <p>先方には「サイトで使うデータを、表で管理している場所です」と言う。読み方はスパベース。操作は <a href="../tools/supabase.html">Supabase</a>。</p>
+          <div class="stage">
+            <div class="stage-card">
+              <span class="when">うちの基本</span>
+              <h3>Supabase</h3>
+              <p><strong>使うとき</strong>ログイン、会員、一覧、帳票がある案件。操作は <a href="../tools/supabase.html">Supabase</a>。</p>
+              <p><strong>メリット</strong>データが表で見える。ログインも同じ場所。早くて安い。Cursorで作りやすい。</p>
+            </div>
+            <div class="stage-card">
+              <span class="when">名前はよく出る</span>
+              <h3>Firebase</h3>
+              <p><strong>使うとき</strong>チャット、通知、スマホアプリが本体。先方がGoogle指定のとき。</p>
+              <p><strong>メリット</strong>通知が速い。チャット向き。Googleと連携しやすい。</p>
+              <p><strong>向かない</strong>一覧や帳票、集計が要るとき。</p>
+            </div>
+            <div class="stage-card">
+              <span class="when">指定があるときだけ</span>
+              <h3>AWSなど</h3>
+              <p><strong>使うとき</strong>大きい会社の指定、既存のサーバーに載せる、社内でAWS以外ダメ。</p>
+              <p><strong>メリット</strong>先方のサーバーに合わせられる。審査を通しやすい。細かく組める。</p>
+              <p><strong>注意</strong>日数と費用がかかる。その場で決めず、営業へ返す。</p>
+            </div>
+          </div>
+          <p class="note">迷ったらその場で決めず、営業か案件オーナーへ。</p>
+        </section>
+
+        <section class="block" id="accept">
+          <div class="block-head">
+            <span class="block-num">5</span>
+            <h2>検収</h2>
+          </div>
+          <p>社内側で全部動くことを確認してから、完了を伝える。先方は2週間〜1か月で確認する。直しがあれば、その期間内に直して納品完了。</p>
+          <div class="pipe" aria-label="検収の期間">
+            <div class="pipe-step">
+              <strong>社内で動作確認</strong>
+              <span>こちらで全部見てから出す</span>
+            </div>
+            <div class="pipe-step">
+              <strong>完了を伝える</strong>
+              <span>資料のURLも一緒に送る</span>
+            </div>
+            <div class="pipe-step">
+              <strong>2週間〜1か月</strong>
+              <span>先方が操作して確認する</span>
+            </div>
+            <div class="pipe-step is-done">
+              <strong>直して納品完了</strong>
+              <span>期間内の修正だけ直す</span>
+            </div>
+          </div>
+          <div class="prompt is-letter">
+            <em>完了を伝える文面</em>
+            <p>お世話になっております。<br>社内側の動作確認が完了しましたので、ご報告いたします。<br><br>【確認期間】<br>2週間〜1か月<br><br>【提出資料】<br>・仕様書<br>・機能一覧<br>・チェック項目（社内で確認した箇所）<br><br>修正点がございましたら、この期間内にご連絡ください。<br>期間内に対応し、納品完了といたします。</p>
+          </div>
+          <h3>社内で見たところを、見えるかして出す</h3>
+          <p>動作確認で何をしたかは、先方が見られる形にする。GitHub Pagesでチェック項目を作るか、スプレッドシートにする。仕様書や機能一覧も、Pagesで出してURLを送る。ファイルをメールで置かない。</p>
+          <div class="grid-2 is-flush">
+            <figure class="scene is-ui">
+              <img src="../img/step-spec-example.png" alt="GitHub Pagesの仕様書。バージョンと、現行画面を正とする、と書いてある">
+              <figcaption>仕様書の例。今の画面を正にする。<a href="https://tmksh.github.io/eiwa-platform/SPECIFICATION.html" target="_blank" rel="noopener">実例を開く</a></figcaption>
+            </figure>
+            <figure class="scene is-ui">
+              <img src="../img/step-function-list-example.png" alt="GitHub Pagesの機能一覧。ダッシュボードの説明の下に、実際の画面スクショがある">
+              <figcaption>機能一覧の例。画面のスクショを付ける。<a href="https://tmksh.github.io/eiwa-platform/FUNCTION_LIST.html" target="_blank" rel="noopener">実例を開く</a></figcaption>
+            </figure>
+          </div>
+          <h3>作り方</h3>
+          <p>Cursorに、今のシステムを仕様書にして、と頼む。画面のスクショを付けて出す。出てきたものを整えて提出する。チェック項目も同じ。Pagesの操作は <a href="../tools/github.html">GitHub</a>。02でも同じ手順。</p>
+          <div class="grid-2 is-flush">
+            <div class="prompt is-cursor">
+              <em><img src="../img/logos/cursor.svg" alt="">Cursorのチャット（仕様書）</em>
+              <p>今の画面を正として、仕様書を作って。画面のスクショを付けてあります。</p>
+            </div>
+            <div class="prompt is-cursor">
+              <em><img src="../img/logos/cursor.svg" alt="">Cursorのチャット（機能一覧）</em>
+              <p>今のシステムの機能一覧を、画面ごとにスクショ付きで作って。</p>
+            </div>
+          </div>
+          <figure class="scene is-ui">
+            <img src="../img/step-pages-live.png" alt="GitHubのSettingsのPages。Your site is live at のURLと、mainの/docsから公開している設定">
+            <figcaption>Settings → Pages。main の /docs。上のURLをお客様に送る。</figcaption>
+          </figure>
+          <p class="hint">リポジトリが private でも、公開したページは誰でも見られる。実名、ID、パスワード、社内金額は書かない。</p>
+          <div class="split">
+            <ul>
+              <li>完了定義を、お客様が操作して確認する。</li>
+              <li>合格 / 残件つき合格 / 不合格。仕事が止まるものだけ不合格。</li>
+              <li>約束に無い「もっとこうしたい」は見積に回し、判定に混ぜない。</li>
+            </ul>
+            <figure class="scene">
+              <img src="../img/photo-04-acceptance.jpg" alt="お客様がパソコンを操作し、当社の担当は横で見ながら記録している写真">
+              <figcaption>操作するのはお客様</figcaption>
+            </figure>
+          </div>
+        </section>
 
         <nav class="pager">
           <a href="03-contract.html"><span>前</span>03 見積・契約</a>
