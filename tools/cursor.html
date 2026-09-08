@@ -86,10 +86,34 @@
         <h3>サイトを自分のPCで見る</h3>
         <p>案件のフォルダを開いたら、下のターミナルで起動コマンドを打ちます。よく使うのは次です。</p>
         <p><code>npm run dev</code></p>
-        <p>Enterを押すと、自分のPCの中だけでサイトが動き出します。出てきた <code>localhost</code> のURLをブラウザで開いて、直した内容を確認します。この時点では、まだ公開サイトは変わりません。</p>
+        <p>Enterを押すと、自分のPCの中だけでサイトが動き出します。出てきた <code>localhost</code> のURLを、下の手順でCursorの中のブラウザに貼ります。この時点では、まだ公開サイトは変わりません。</p>
         <figure class="scene is-ui">
           <img src="../img/step-cursor-npm-dev.png" alt="ターミナルに npm run dev と打ち込んだ画面">
           <figcaption>起動コマンドは <code>npm run dev</code>。ターミナルに打って Enter です</figcaption>
+        </figure>
+
+        <h3>Cursorの中でブラウザを開く</h3>
+        <p>外のChromeやSafariではなく、Cursorの中で見ます。直した内容がすぐ画面に出るので、見ながら直せます。</p>
+        <ol>
+          <li>画面上部の <strong>⋯</strong>（3点）を押す</li>
+          <li><strong>Open Browser</strong> を押す。ブラウザタブが増えます</li>
+          <li>ターミナルに出た <code>localhost</code> のURLを貼る</li>
+        </ol>
+        <div class="grid-2 is-flush">
+          <figure class="scene is-ui">
+            <img src="../img/step-cursor-open-browser.png" alt="画面上部の3点メニュー。Open Browserが選ばれている">
+            <figcaption>上部の ⋯ を押して Open Browser を選びます</figcaption>
+          </figure>
+          <figure class="scene is-ui">
+            <img src="../img/step-cursor-browser-tab.png" alt="Cursorの中に増えたブラウザタブ。Enter URL or searchと出ている">
+            <figcaption>ブラウザタブが増えます。ここに <code>localhost</code> のURLを貼ります</figcaption>
+          </figure>
+        </div>
+        <figure class="scene is-ui is-video">
+          <video controls playsinline preload="metadata" poster="../img/step-cursor-browser-tab.png">
+            <source src="../img/step-cursor-open-browser.mp4" type="video/mp4">
+          </video>
+          <figcaption>⋯ から Open Browser を開き、localhost を貼るまでの流れです</figcaption>
         </figure>
 
         <h3>ターミナルにエラーが出たとき</h3>
@@ -109,11 +133,11 @@
         <h2>作業の流れ</h2>
         <ol>
           <li>案件のフォルダをCursorで開く（<strong>File → Open Folder</strong>）。または <a href="github-desktop.html">GitHub Desktopの Open in Cursor</a>。</li>
-          <li>ターミナルで <code>npm run dev</code> を打って、自分のPCでサイトを見る。</li>
+          <li>ターミナルで <code>npm run dev</code> を打って、Cursorの中のブラウザでサイトを見る。</li>
           <li>左のファイル一覧から、直したいファイルを選ぶ。</li>
           <li>直す。文章だけの修正なら、HTMLの日本語部分だけを書き換える。</li>
           <li>保存する（<code>⌘ + S</code>）。保存しないと次の工程に出てきません。</li>
-          <li>ブラウザで見た目を確認する。</li>
+          <li>Cursorの中のブラウザで見た目を確認する。</li>
           <li><a href="github-desktop.html">GitHub Desktop</a> に移り、コミットとプッシュをする。</li>
         </ol>
 
@@ -139,16 +163,44 @@
             </ul>
           </div>
         </div>
-        <figure class="scene is-ui is-portrait">
-          <img src="../img/step-cursor-chat.png" alt="Cursorの右チャット。日本語の依頼と、複数ファイルの変更案、Reviewボタンが見える">
-          <figcaption>右のチャット。変更が出たら Review を押して、中身を見てから採用します</figcaption>
+        <h3>画面を選んで直す</h3>
+        <p>先に <code>npm run dev</code> でサイトを動かし、上の手順でCursorの中のブラウザを開いておきます。外のChromeやSafariではありません。</p>
+        <ol>
+          <li>画面上部の、デスクトップにカーソルがあるボタンを押す</li>
+          <li>動かしているサイトの上で、直したい場所をクリックして選ぶ（青く囲まれます）</li>
+          <li>右のチャットに「ここを〇〇にして」と書く</li>
+          <li>出てきた変更は Review で見てから通す</li>
+        </ol>
+        <div class="grid-2 is-flush">
+          <figure class="scene is-ui">
+            <img src="../img/step-cursor-select-page.png" alt="localhostの画面で、直したいボタンが青く囲まれ、DigitalInspection buttonと出ている">
+            <figcaption>直したい場所をクリックすると、青く囲まれます</figcaption>
+          </figure>
+          <figure class="scene is-ui">
+            <img src="../img/step-cursor-select-prompt.png" alt="画面上部のデスクトップにカーソルがあるボタンと、選んだ見出しがチャットに入り点検に変更してと書いてある">
+            <figcaption>選んだ場所がチャットに入ります。あとは日本語で指示します</figcaption>
+          </figure>
+        </div>
+        <figure class="scene is-ui is-video">
+          <video controls playsinline preload="metadata" poster="../img/step-cursor-select-page.png">
+            <source src="../img/step-cursor-select.mp4" type="video/mp4">
+          </video>
+          <figcaption>ボタンを押して場所を選び、チャットで指示するまでの流れです</figcaption>
         </figure>
-        <h3>モデルの切り替え</h3>
-        <p>チャット下のモデル名をクリックすると、使うAIを変えられます。普段の文言直しは速め、難しい不具合は強め、で十分です。迷ったら今選ばれているままで進めてください。</p>
-        <figure class="scene is-ui">
-          <img src="../img/step-cursor-model.png" alt="Cursorのモデル選択。Cursor Grok 4.6 Extra High Fastが選ばれている">
-          <figcaption>チャット下のモデル名をクリックして切り替えます</figcaption>
-        </figure>
+        <div class="cursor-pair">
+          <figure class="scene is-ui is-portrait">
+            <img src="../img/step-cursor-chat.png" alt="Cursorの右チャット。日本語の依頼と、複数ファイルの変更案、Reviewボタンが見える">
+            <figcaption>右のチャット。変更が出たら Review を押して、中身を見てから採用します</figcaption>
+          </figure>
+          <div>
+            <h3>モデルの切り替え</h3>
+            <p>チャット下のモデル名をクリックすると、使うAIを変えられます。普段の文言直しは速め、難しい不具合は強め、で十分です。迷ったら今選ばれているままで進めてください。</p>
+            <figure class="scene is-ui">
+              <img src="../img/step-cursor-model.png" alt="Cursorのモデル選択。Cursor Grok 4.6 Extra High Fastが選ばれている">
+              <figcaption>チャット下のモデル名をクリックして切り替えます</figcaption>
+            </figure>
+          </div>
+        </div>
         <p class="note">AIの提案をそのまま通さないでください。お客様の実名データ、ID、パスワード、社内金額をチャットに貼らないのも同じ理由です。判断の責任は、最後まで実装リードにあります。</p>
 
         <h2>やってはいけないこと</h2>

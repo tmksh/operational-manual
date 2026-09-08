@@ -416,8 +416,43 @@ li + li { margin-top: 6px; }
   max-width: 280px;
 }
 
+.cursor-pair {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  margin: 16px 0 24px;
+}
+
+.cursor-pair > .scene {
+  margin: 0;
+  max-width: none;
+}
+
+.cursor-pair h3 {
+  margin-top: 0;
+}
+
+.cursor-pair .scene.is-ui {
+  max-width: none;
+}
+
 .scene.is-ui.is-narrow {
   max-width: 400px;
+}
+
+.scene.is-video {
+  max-width: none;
+}
+
+.scene.is-ui video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  background: var(--navy);
+  border: 1px solid var(--line);
 }
 
 .ide-board {
@@ -1371,6 +1406,8 @@ code, .mono {
   .phase-head,
   .phase-head.is-tight { grid-template-columns: 1fr; gap: 18px; }
   .split { grid-template-columns: 1fr; gap: 16px; }
+  .cursor-pair { grid-template-columns: 1fr; gap: 16px; }
+  .cursor-pair > .scene.is-portrait { max-width: 280px; }
   .meta, .grid-2, .grid-3, .pair, .versus, .stage { grid-template-columns: 1fr; }
   .loop { grid-template-columns: 1fr 1fr; }
   .loop a:last-child { grid-column: 1 / -1; }
