@@ -163,6 +163,29 @@
             </ul>
           </div>
         </div>
+        <h3>モードの使い分け</h3>
+        <p>チャット下のモード名をクリックすると切り替えます。迷ったら <strong>Agent</strong> のままで進めてください。</p>
+        <div class="cursor-modes">
+          <div>
+            <div class="card">
+              <h3>Agent</h3>
+              <p>普段の直し。ファイルを書き換えてもらう</p>
+            </div>
+            <div class="card">
+              <h3>Plan</h3>
+              <p>大きな改修の前。方針だけ出す</p>
+            </div>
+            <div class="card">
+              <h3>Ask</h3>
+              <p>聞くだけ。コードは変えない</p>
+            </div>
+            <p>ほかに <strong>Debug</strong>（動かないとき）と <strong>Multitask</strong>（複数を同時に走らせる）もあります。普段は使わなくて大丈夫です。</p>
+          </div>
+          <figure class="scene is-ui">
+            <img src="../img/step-cursor-modes.png" alt="チャット下のモード選択。Agent、Plan、Debug、Multitask、Askが並び、Agentが選ばれている">
+            <figcaption>チャット下のモード名をクリックして切り替えます</figcaption>
+          </figure>
+        </div>
         <h3>画面を選んで直す</h3>
         <p>先に <code>npm run dev</code> でサイトを動かし、上の手順でCursorの中のブラウザを開いておきます。外のChromeやSafariではありません。</p>
         <ol>
