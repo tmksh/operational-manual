@@ -28,30 +28,450 @@
           <div class="meta-item"><span>公式サイト</span><strong><a href="https://supabase.com/" target="_blank" rel="noopener">supabase.com</a></strong></div>
         </div>
 
-        <h2>ひとことで言うと</h2>
-        <p>Supabaseは「Webサイト本体」ではなく「裏側のデータ管理」です。この言い方をすると、お客様にいちばん早く伝わります。</p>
-        <p>たとえば会員制サイトなら、画面の見た目は <a href="netlify.html">Netlify</a> が配り、その画面に表示される会員名や投稿内容はSupabaseから取ってきています。</p>
-        <p class="note">Supabaseは <a href="cursor.html">Cursor</a> → <a href="github-desktop.html">GitHub Desktop</a> → <a href="github.html">GitHub</a> → <a href="netlify.html">Netlify</a> の流れの外にあります。Cursorでコードを直しても、Supabaseの中のデータは変わりません。逆に、Supabaseのデータを直してもコードは変わりません。別々に扱います。</p>
+        <nav class="sb-toc" aria-label="このページの中身">
+          <a href="#features"><span>1</span>できること</a>
+          <a href="#connect"><span>2</span>画面とつなぐ</a>
+          <a href="#env"><span>3</span>キーの置き場</a>
+          <a href="#rls"><span>4</span>RLS（鍵）</a>
+          <a href="#sql"><span>5</span>SQL</a>
+          <a href="#trouble"><span>6</span>困ったとき</a>
+        </nav>
 
-        <h2>何を持っているか</h2>
+        <h2>ひとことで言うと</h2>
+        <p>Supabaseは「Webサイト本体」ではなく「裏側のデータ管理」です。お店に例えると、Webサイトは店頭、Supabaseは奥の倉庫です。</p>
+        <div class="sb-map" role="img" aria-label="お客様のスマホからWebサイトを開き、WebサイトがSupabaseにデータを取りに行く図">
+          <div class="sb-node">
+            <span class="sb-tag">見る人</span>
+            <strong>お客様のスマホ・PC</strong>
+            <small>ページを開く</small>
+          </div>
+          <div class="sb-arrow"><span>→</span></div>
+          <div class="sb-node">
+            <span class="sb-tag">店頭</span>
+            <strong>Webサイト</strong>
+            <small>Netlifyが配る画面</small>
+          </div>
+          <div class="sb-arrow"><span>⇄</span><small>データを<br>取りに行く</small></div>
+          <div class="sb-node is-supa">
+            <span class="sb-tag">奥の倉庫</span>
+            <strong>Supabase</strong>
+            <small>データ・ログイン・ファイル</small>
+          </div>
+        </div>
+        <p class="note">Cursorでコードを直しても、Supabaseの中のデータは変わりません。逆に、Supabaseのデータを直してもコードは変わりません。別々に扱います。</p>
+
+        <h2 id="features">Supabaseでできること</h2>
+        <p>裏側に必要なものが、1つにまとまっています。うちの案件でよく使うのは上の3つです。</p>
+        <div class="sb-features">
+          <div class="sb-feature is-main">
+            <span class="sb-badge">よく使う</span>
+            <strong>Database</strong>
+            <em>データの表</em>
+            <p>会員・予約・投稿などを表で保存</p>
+            <small>例：予約一覧、帳票の元データ</small>
+          </div>
+          <div class="sb-feature is-main">
+            <span class="sb-badge">よく使う</span>
+            <strong>Authentication</strong>
+            <em>ログイン</em>
+            <p>会員登録・ログイン・パスワード再設定</p>
+            <small>例：会員ページ、管理画面</small>
+          </div>
+          <div class="sb-feature is-main">
+            <span class="sb-badge">よく使う</span>
+            <strong>Storage</strong>
+            <em>ファイル置き場</em>
+            <p>画像やPDFを保存</p>
+            <small>例：プロフィール写真、書類PDF</small>
+          </div>
+          <div class="sb-feature">
+            <strong>API</strong>
+            <em>自動でできる窓口</em>
+            <p>表を作ると、画面から読み書きする窓口が自動でできる</p>
+            <small>サーバーを自分で作らなくていい</small>
+          </div>
+          <div class="sb-feature">
+            <strong>Realtime</strong>
+            <em>すぐ反映</em>
+            <p>誰かが書き込むと、他の人の画面にもすぐ出る</p>
+            <small>例：チャット、在庫数</small>
+          </div>
+          <div class="sb-feature">
+            <strong>Edge Functions</strong>
+            <em>裏の処理</em>
+            <p>画面に置けない処理を動かす</p>
+            <small>例：決済、メール送信、外部連携</small>
+          </div>
+        </div>
+
+        <h3>表の見方</h3>
+        <p>Database の中身は、Excelやスプレッドシートとほぼ同じです。会員なら会員の表、予約なら予約の表、と分かれています。</p>
+        <div class="sb-sheet">
+          <div class="sb-sheet-head">members（会員の表）</div>
+          <table>
+            <thead>
+              <tr>
+                <th>id</th>
+                <th class="is-col">名前</th>
+                <th>メール</th>
+                <th>登録日</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="is-col">山田 太郎</td>
+                <td>yamada@example.com</td>
+                <td>2026-09-01</td>
+              </tr>
+              <tr class="is-row">
+                <td>2</td>
+                <td class="is-col">佐藤 花子</td>
+                <td>sato@example.com</td>
+                <td>2026-09-03</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="is-col">鈴木 一郎</td>
+                <td>suzuki@example.com</td>
+                <td>2026-09-08</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="sb-legend">
+            <span class="is-row">横の1行 ＝ 1人分（1件）</span>
+            <span class="is-col">縦の1列 ＝ 項目</span>
+          </div>
+        </div>
+
+        <h2 id="connect">画面（フロント）とつなぐ</h2>
+        <p>画面のコードに <strong>住所</strong> と <strong>合鍵</strong> の2つを渡すと、Supabaseとつながります。</p>
+        <div class="sb-map" role="img" aria-label="画面のコードが住所と合鍵を使ってSupabaseの窓口へ行き、RLSの確認を通って表のデータを受け取る図">
+          <div class="sb-node">
+            <span class="sb-tag">フロント</span>
+            <strong>画面のコード</strong>
+            <small>Next.js・Viteなど</small>
+          </div>
+          <div class="sb-arrow"><span>⇄</span><small>住所＋合鍵</small></div>
+          <div class="sb-node is-supa">
+            <span class="sb-tag">窓口</span>
+            <strong>Supabase API</strong>
+            <small>自動でできている</small>
+          </div>
+          <div class="sb-arrow"><span>⇄</span><small>RLSで<br>確認</small></div>
+          <div class="sb-node is-supa">
+            <span class="sb-tag">倉庫</span>
+            <strong>Database</strong>
+            <small>会員・予約などの表</small>
+          </div>
+        </div>
+
+        <h3>1回表示するときに起きていること</h3>
+        <div class="pipe">
+          <div class="pipe-step"><strong>① 開く</strong><span>会員が予約ページを開く</span></div>
+          <div class="pipe-step"><strong>② 取りに行く</strong><span>コードが「予約をちょうだい」とSupabaseへ</span></div>
+          <div class="pipe-step"><strong>③ 鍵を確認</strong><span>RLSが「本人か」を見る</span></div>
+          <div class="pipe-step is-done"><strong>④ 返す</strong><span>本人の予約だけが画面に出る</span></div>
+        </div>
+
+        <h3>渡す2つの値</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>値</th>
+              <th>中身の例</th>
+              <th>たとえ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Project URL</td>
+              <td><code>https://xxxx.supabase.co</code></td>
+              <td>住所</td>
+            </tr>
+            <tr>
+              <td>anon key<small>新しい画面では publishable key</small></td>
+              <td><code>eyJhbGciOi...</code> / <code>sb_publishable_...</code></td>
+              <td>合鍵（画面に入れてよい）</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="hint">Supabaseの画面上部の <strong>Connect</strong> を押すと、両方まとめて出ます。Project Settings の API Keys からも見られます。</p>
+
+        <h3>キーは2種類。片方は絶対に画面に入れない</h3>
         <div class="grid-2">
-          <div class="card">
-            <h3>Table Editor（データ）</h3>
-            <p>表計算ソフトのような画面で、実際のデータが並びます。</p>
-            <ul>
-              <li>会員一覧、投稿、予約、問い合わせなど</li>
-              <li>1行 ＝ 1件。列 ＝ 項目</li>
-              <li>本番のデータもここに入っている</li>
+          <div class="card ok">
+            <h3>anon / publishable key</h3>
+            <p><strong>合鍵。</strong>画面のコードに入れてよい。RLSで許された部屋しか開かない。</p>
+          </div>
+          <div class="card stop">
+            <h3>service_role / secret key</h3>
+            <p><strong>マスターキー。</strong>RLSを無視して全部開く。画面のコード・GitHub・<code>NEXT_PUBLIC_</code> や <code>VITE_</code> 付きの変数には入れない。</p>
+          </div>
+        </div>
+
+        <h2 id="env">キーの置き場所（ローカルと本番）</h2>
+        <div class="say">
+          <em>結論</em>
+          <p>ローカルは <code>.env.local</code>、本番は Netlify の環境変数。<code>.env.production</code> は作りません。</p>
+        </div>
+        <div class="sb-map is-env" role="img" aria-label="自分のPCには.env.localがあるが、GitHubには上がらない。Netlifyは自分の画面の環境変数から値を受け取る図">
+          <div class="sb-node">
+            <span class="sb-tag">自分のPC（Cursor）</span>
+            <strong>ローカル</strong>
+            <ul class="sb-files">
+              <li>src/ など</li>
+              <li class="is-secret">.env.local</li>
             </ul>
           </div>
-          <div class="card">
-            <h3>Authentication（ログイン）</h3>
-            <p>誰がログインできるかを管理します。</p>
-            <ul>
-              <li>メールアドレスとパスワードの登録</li>
-              <li>パスワード再設定のメール送信</li>
-              <li>ログインできない相談は、まずここを見る</li>
+          <div class="sb-arrow"><span>→</span><small>プッシュ</small></div>
+          <div class="sb-node">
+            <span class="sb-tag">GitHub</span>
+            <strong>クラウドの保管</strong>
+            <ul class="sb-files">
+              <li>src/ など</li>
+              <li class="is-missing">.env.local（届かない）</li>
             </ul>
+          </div>
+          <div class="sb-arrow"><span>→</span><small>ビルド</small></div>
+          <div class="sb-node is-supa">
+            <span class="sb-tag">Netlify</span>
+            <strong>本番</strong>
+            <ul class="sb-files">
+              <li>src/ など</li>
+              <li class="is-secret">環境変数（画面で入れる）</li>
+            </ul>
+          </div>
+        </div>
+        <p><code>.env.local</code> はGitHubに上げません（<code>.gitignore</code> で止めます）。NetlifyはGitHubのファイルからサイトを作るので、<code>.env.local</code> は届きません。だから同じ値を、Netlifyの画面にも入れます。</p>
+
+        <div class="grid-2 is-flush">
+          <div class="card">
+            <h3>ローカル：<code>.env.local</code></h3>
+            <p>プロジェクトのいちばん上の階層に作ります。</p>
+            <pre class="sb-code"><span class="sb-code-name">.env.local</span>NEXT_PUBLIC_SUPABASE_URL=https://xxxx.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOi...</pre>
+            <p class="hint">書き換えたら、<code>npm run dev</code> を止めて起動し直します。</p>
+          </div>
+          <div class="card">
+            <h3>本番：Netlifyの環境変数</h3>
+            <ol>
+              <li><strong>Site configuration</strong> → <strong>Environment variables</strong></li>
+              <li><strong>Add a variable</strong> で、名前と値を <code>.env.local</code> と同じに入れる</li>
+              <li><strong>Deploys</strong> → <strong>Trigger deploy</strong> で作り直す</li>
+            </ol>
+            <p class="hint">入れただけでは反映されません。作り直して初めて効きます。</p>
+          </div>
+        </div>
+
+        <h3>変数の名前</h3>
+        <p>頭につく文字は、作り方で決まっています。頭の文字は「画面に出してよい」という印です。</p>
+        <table>
+          <thead>
+            <tr>
+              <th>作り方</th>
+              <th>住所（URL）</th>
+              <th>合鍵（anon key）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Next.js</td>
+              <td><code>NEXT_PUBLIC_SUPABASE_URL</code></td>
+              <td><code>NEXT_PUBLIC_SUPABASE_ANON_KEY</code></td>
+            </tr>
+            <tr>
+              <td>Vite（React など）</td>
+              <td><code>VITE_SUPABASE_URL</code></td>
+              <td><code>VITE_SUPABASE_ANON_KEY</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>つなぐ設定は、Cursorに頼む</h3>
+        <div class="prompt is-cursor">
+          <em><img src="../img/logos/cursor.svg" alt="">Cursorのチャットへ</em>
+          <p>Supabaseにつなぐ設定をして。URLとanonキーは .env.local から読むようにして、.env.local は .gitignore に入れて。</p>
+        </div>
+        <p>できあがると、次のような「つなぎのファイル」が1つできます。中身を覚える必要はありません。</p>
+        <pre class="sb-code"><span class="sb-code-name">lib/supabase.ts（例）</span>import { createClient } from '@supabase/supabase-js'
+
+export const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+)</pre>
+
+        <h2 id="rls">RLS（見ていい人を決める鍵）</h2>
+        <p>RLS（Row Level Security）は、データベース側でかける権限です。「誰が、どの行を、見る・足す・直す・消すことができるか」を決めます。</p>
+
+        <h3>家に例えると</h3>
+        <p>家の中で、兄弟ごとの部屋に鍵をつけて、それぞれに自分の部屋の鍵だけを持たせる感じです。部屋の中身がデータです。</p>
+        <figure class="sb-house">
+          <svg viewBox="0 0 720 390" role="img" aria-label="家が会員の表。兄・姉・妹の部屋にそれぞれ鍵がかかっていて、兄の鍵では兄の部屋だけが開く図">
+            <polygon class="roof" points="60,124 360,22 660,124"/>
+            <text class="t-roof" x="360" y="100">家 ＝ 会員の表</text>
+            <rect class="house" x="80" y="124" width="560" height="196"/>
+
+            <g transform="translate(100,148)">
+              <rect class="room is-open" width="160" height="152" rx="10"/>
+              <g transform="translate(66,16)">
+                <path class="shackle is-open" d="M7 16 V6 a7 7 0 0 1 14 0 V9"/>
+                <rect class="lock is-open" x="2" y="16" width="24" height="18" rx="3"/>
+              </g>
+              <text class="t-room" x="80" y="80">兄の部屋</text>
+              <text class="t-sub" x="80" y="102">兄のデータ</text>
+              <text class="t-ok" x="80" y="134">入れる</text>
+            </g>
+
+            <g transform="translate(280,148)">
+              <rect class="room" width="160" height="152" rx="10"/>
+              <g transform="translate(66,16)">
+                <path class="shackle" d="M7 16 V9 a7 7 0 0 1 14 0 V16"/>
+                <rect class="lock" x="2" y="16" width="24" height="18" rx="3"/>
+              </g>
+              <text class="t-room" x="80" y="80">姉の部屋</text>
+              <text class="t-sub" x="80" y="102">姉のデータ</text>
+              <text class="t-no" x="80" y="134">入れない</text>
+            </g>
+
+            <g transform="translate(460,148)">
+              <rect class="room" width="160" height="152" rx="10"/>
+              <g transform="translate(66,16)">
+                <path class="shackle" d="M7 16 V9 a7 7 0 0 1 14 0 V16"/>
+                <rect class="lock" x="2" y="16" width="24" height="18" rx="3"/>
+              </g>
+              <text class="t-room" x="80" y="80">妹の部屋</text>
+              <text class="t-sub" x="80" y="102">妹のデータ</text>
+              <text class="t-no" x="80" y="134">入れない</text>
+            </g>
+
+            <g transform="translate(206,356)">
+              <circle class="key" cx="10" cy="0" r="9"/>
+              <path class="key" d="M19 0 H48 M38 0 V8 M46 0 V6"/>
+            </g>
+            <text class="t-key" x="268" y="362">兄がログイン ＝ 兄の部屋の鍵だけを持っている</text>
+          </svg>
+        </figure>
+        <table>
+          <thead>
+            <tr>
+              <th>たとえ</th>
+              <th>Supabaseでは</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>家</td>
+              <td>表（会員の表、予約の表など）</td>
+            </tr>
+            <tr>
+              <td>部屋</td>
+              <td>行（1人分・1件分のデータ）</td>
+            </tr>
+            <tr>
+              <td>鍵を持っている人</td>
+              <td>ログインしている人</td>
+            </tr>
+            <tr>
+              <td>鍵のルール</td>
+              <td>RLSのルール（ポリシー）。例：「自分の行だけ見てよい」</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>鍵は4種類ある</h3>
+        <p>同じ部屋でも「見るのはいいけど、消すのはダメ」のように分けられます。</p>
+        <div class="sb-ops">
+          <div><strong>見る</strong><span>例：自分の予約だけ</span></div>
+          <div><strong>足す</strong><span>例：ログインした人だけ</span></div>
+          <div><strong>直す</strong><span>例：自分のプロフィールだけ</span></div>
+          <div><strong>消す</strong><span>例：管理者だけ</span></div>
+        </div>
+
+        <h3>よくある2つの失敗</h3>
+        <div class="grid-2">
+          <div class="card stop">
+            <h3>RLSをつけ忘れる</h3>
+            <p>鍵のない家です。画面には合鍵（anon key）が入っているので、その気になれば誰でも全部の部屋に入れます。他の会員の情報まで見えてしまいます。</p>
+          </div>
+          <div class="card warn">
+            <h3>RLSはオン、ルールがない</h3>
+            <p>鍵はかけたのに、誰にも鍵を渡していない状態です。本人も入れないので、画面にデータが1件も出ません。</p>
+          </div>
+        </div>
+        <div class="prompt is-cursor">
+          <em><img src="../img/logos/cursor.svg" alt="">ルールはCursorのチャットへ</em>
+          <p>membersの表にRLSをつけて、ログインした本人の行だけ、見る・直すができるようにして。</p>
+        </div>
+
+        <h2 id="sql">SQL（データベースへの命令文）</h2>
+        <p>SQLは、データベースに「これをやって」と頼む言葉です。Supabaseの <strong>SQL Editor</strong> に貼って <strong>Run</strong> を押すと動きます。自分で書かなくても、Cursorに書いてもらえば大丈夫です。</p>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Table Editor（マウスで）</h3>
+            <p>1件ずつ見る・直す。Excelと同じ感覚。</p>
+            <small class="sb-when">例：1人の電話番号を直す</small>
+          </div>
+          <div class="card">
+            <h3>SQL Editor（命令文で）</h3>
+            <p>表を作る、列を足す、RLSのルール、まとめて直す、集計。</p>
+            <small class="sb-when">例：予約の表を新しく作る</small>
+          </div>
+        </div>
+
+        <h3>どんなときに使うか</h3>
+        <table class="sb-sql">
+          <thead>
+            <tr>
+              <th>やりたいこと</th>
+              <th>SQLの例</th>
+              <th>意味</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>見る</td>
+              <td><code>select * from members;</code></td>
+              <td>会員を全部見る</td>
+            </tr>
+            <tr>
+              <td>表を作る</td>
+              <td><code>create table reservations (...);</code></td>
+              <td>予約の表を作る</td>
+            </tr>
+            <tr>
+              <td>列を足す</td>
+              <td><code>alter table members add column phone text;</code></td>
+              <td>電話番号の列を足す</td>
+            </tr>
+            <tr>
+              <td>直す</td>
+              <td><code>update members set plan = 'pro' where id = 2;</code></td>
+              <td>2番の人だけ直す</td>
+            </tr>
+            <tr>
+              <td>RLSのルール</td>
+              <td><code>create policy ... using (auth.uid() = user_id);</code></td>
+              <td>本人だけ見られる</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>SQLを流すときの順番</h3>
+        <div class="pipe">
+          <div class="pipe-step"><strong>① Cursorに頼む</strong><span>「〇〇する SQL を書いて」</span></div>
+          <div class="pipe-step"><strong>② 検証環境で Run</strong><span>本番ではなく、試し用のプロジェクトで</span></div>
+          <div class="pipe-step"><strong>③ 画面で確認</strong><span>データや表示がおかしくないか</span></div>
+          <div class="pipe-step is-done"><strong>④ 本番で Run</strong><span>実装リードの確認を取ってから</span></div>
+        </div>
+        <div class="grid-2">
+          <div class="card stop">
+            <h3><code>where</code> を忘れない</h3>
+            <p><code>update</code> と <code>delete</code> は、<code>where</code>（どの行か）をつけないと全部の行が変わる・消えます。本番は戻せません。</p>
+          </div>
+          <div class="card">
+            <h3>SQLはファイルで残す</h3>
+            <p>流したSQLは、リポジトリの <code>supabase/</code> フォルダに保存します。あとから何をしたか追えます。</p>
           </div>
         </div>
 
@@ -77,8 +497,8 @@
               <td>他のお客様のデータが映り込んでいないか確認する</td>
             </tr>
             <tr>
-              <td>接続キーを扱う</td>
-              <td>コードに直書きせず、環境変数に入れる。<a href="netlify.html">Netlify</a> 側にも同じ値を設定する</td>
+              <td>キーを扱う</td>
+              <td>コードに直書きしない。ローカルは <code>.env.local</code>、本番は Netlify の環境変数</td>
             </tr>
           </tbody>
         </table>
@@ -104,7 +524,7 @@
           </div>
         </div>
 
-        <h2>困ったとき</h2>
+        <h2 id="trouble">困ったとき</h2>
         <table>
           <thead>
             <tr>
@@ -118,20 +538,31 @@
               <td>Authentication にそのユーザーが登録されているか見る</td>
             </tr>
             <tr>
-              <td>データが画面に出ない</td>
-              <td>Table Editor に行があるか → 権限設定（RLS）で止まっていないか</td>
+              <td>データが画面に出ない（0件）</td>
+              <td>Table Editor に行があるか → <a href="#rls">RLS</a> のルールで止まっていないか</td>
             </tr>
             <tr>
-              <td>公開したらデータだけ出ない</td>
-              <td><a href="netlify.html">Netlify</a> 側に接続キーを設定し忘れていないか</td>
+              <td>ローカルでは出るのに、本番だけ出ない</td>
+              <td><a href="netlify.html">Netlify</a> の環境変数を入れたか → 入れたあと Trigger deploy したか</td>
+            </tr>
+            <tr>
+              <td><code>.env.local</code> を直したのに変わらない</td>
+              <td><code>npm run dev</code> を止めて起動し直す</td>
+            </tr>
+            <tr>
+              <td><code>Invalid API key</code> と出る</td>
+              <td>キーの貼り間違い。前後に空白や改行が入っていないか見る</td>
             </tr>
           </tbody>
         </table>
+        <p>英語のエラーは、そのままCursorのチャットに貼って「直して」で大丈夫です。</p>
 
         <h2>次に進む合図</h2>
         <ul class="checklist">
           <li>本番データを直す前に、実装リードの確認を取った</li>
-          <li>接続キーをコードに直書きしていない</li>
+          <li><code>.env.local</code> をGitHubに上げていない</li>
+          <li>service_role（secret）キーを画面のコードに入れていない</li>
+          <li>新しく作った表に、RLSをつけた</li>
           <li>お客様に見せる画面に、他社のデータが映っていない</li>
         </ul>
 
