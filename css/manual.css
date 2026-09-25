@@ -962,6 +962,9 @@ li + li { margin-top: 6px; }
 }
 
 .meta-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: 12px;
@@ -969,15 +972,14 @@ li + li { margin-top: 6px; }
 }
 
 .meta-item span {
-  display: block;
+  flex: none;
   font-size: 11px;
   letter-spacing: 0.1em;
   color: var(--muted);
 }
 
 .meta-item strong {
-  display: block;
-  margin-top: 6px;
+  min-width: 0;
   color: var(--navy);
   font-size: 15px;
 }
